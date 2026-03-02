@@ -9,7 +9,7 @@ Analyze a Figma design link and produce a structured report. Branch behavior on 
 
 ## Inputs
 
-**Figma link** (required): Any valid Figma design URL, e.g.:
+**Figma link** (required): Any valid Figma design URL:
 
 - `https://www.figma.com/design/ABC123/MyFile`
 - `https://www.figma.com/design/ABC123/MyFile?node-id=1%3A2`
@@ -19,14 +19,14 @@ If missing, ask the user before proceeding.
 ## URL Parsing
 
 1. Extract **fileKey** from the path (segment after `/design/`).
-2. If the URL has a **node-id** query parameter, decode it (e.g. `1%3A2` or `1-2` → `1:2` for the API). Presence of node-id = **specific** link. Absence = **general** link.
+2. If the URL has a **node-id** query parameter, decode it (`1%3A2` or `1-2` → `1:2` for the API). Presence of node-id = **specific** link. Absence = **general** link.
 
 ## Behavior
 
 | Link type | Scope | What to do |
 |-----------|--------|------------|
-| **General** (no node-id) | Whole file | Call `get_metadata` for the file (whole file or all pages as the API allows). Enumerate **pages → sections → frames → groups → components**. Then aggregate **images, fonts, colors, tokens, content** using `get_variable_defs` and optionally `get_design_context` for key nodes or full page; use `get_screenshot` only where useful. Output one structured report (markdown) with full file overview and global design data. |
-| **Specific** (node-id present) | From that node down | Call `get_metadata` for that node (subtree only). Do **not** list all pages or sections. From that root, go deep: **frames → groups → components → images, fonts, colors, tokens, content** via `get_design_context`, `get_variable_defs`, and optionally `get_screenshot` for the node and important children. Output one structured report focused on that subtree. |
+| **General** (no node-id) | Whole file | Call `get_metadata` for the file (whole file or all pages as the API allows). Enumerate **pages → sections → frames → groups → components**. Then aggregate **images, fonts, colors, tokens, content** using `get_variable_defs` and `get_design_context` where useful for key nodes or full page; use `get_screenshot` only where useful. Output one structured report (markdown) with full file overview and global design data. |
+| **Specific** (node-id present) | From that node down | Call `get_metadata` for that node (subtree only). Do **not** list all pages or sections. From that root, go deep: **frames → groups → components → images, fonts, colors, tokens, content** via `get_design_context`, `get_variable_defs`, and `get_screenshot` where useful for the node and important children. Output one structured report focused on that subtree. |
 
 ## Figma MCP Tools
 
@@ -35,13 +35,13 @@ If missing, ask the user before proceeding.
 - **get_variable_defs**: Variables and styles (colors, spacing, typography) used in selection.
 - **get_screenshot**: Screenshot of selection; use only where useful for the report.
 
-Remote Figma MCP requires the link (file key + optional node id) to provide context.
+Remote Figma MCP requires the link (file key + node id if present) to provide context.
 
 ## Output
 
-Write one structured report (e.g. markdown):
+Write one structured report (markdown):
 
-- **General link**: Sections for Pages, Sections, Frames, Groups, Components, Images, Fonts, Colors, Tokens, Content. Optionally include screenshots for key frames.
+- **General link**: Sections for Pages, Sections, Frames, Groups, Components, Images, Fonts, Colors, Tokens, Content. Include screenshots for key frames when useful.
 - **Specific link**: Same depth (Frames, Groups, Components, Images, Fonts, Colors, Tokens, Content) scoped to the linked node. No file-wide page or section list.
 
 ## Caveat
