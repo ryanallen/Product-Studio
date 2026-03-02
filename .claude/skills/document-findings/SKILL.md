@@ -19,7 +19,7 @@ Valid team and space values are defined in `work/config.md`.
 
 ## Output
 
-All project documentation lives in a single file: `work/{team}/{space}/{project}/README.md`. Do not create other files (notes, drafts, separate docs) for the project; write everything into this README. **One folder, one README:** Never create a new project path, new folder, or a new README. When you discover or document a new problem or topic, add it to this same README (e.g. Problems section, Audits, a new subsection). Multiple problems and topics are tracked in this one file; do not split them into new folders or files.
+All project documentation lives in a single file: `work/{team}/{space}/{project}/README.md`. Do not create other files (notes, drafts, separate docs) for the project; write everything into this README. **One folder, one README:** Never create a new project path, new folder, or a new README. When you discover or document a new problem or topic, add it to this same README (Problems section, Audits, a new subsection). Multiple problems and topics are tracked in this one file; do not split them into new folders or files.
 
 ## Markdown Standards
 
@@ -75,8 +75,8 @@ Always cite sources inline with markdown links. Group full source lists in table
 **Link everything that can be linked.** Do not leave linkable items as plain text. In scope:
 - **Sections:** Include a full table of contents (see README Structure) linking to every section.
 - **URLs:** Use `[title](url)` for every source, doc, or external reference.
-- **People:** In Project tracking > Team, give each person a document anchor (e.g. `<a id="jane-doe"></a>` before the name, or a heading). Anywhere that person appears (notes, Audits, Deliverables, Artifacts, etc.), link their name to that anchor (e.g. `[Jane Doe](#jane-doe)`).
-- **Tickets:** When a ticket ID or URL exists, link it (e.g. `[PROJ-123](url)` or link the ID).
+- **People:** In Project tracking > Team, give each person a document anchor (`<a id="jane-doe"></a>` before the name, or a heading). Anywhere that person appears (notes, Audits, Deliverables, Artifacts, etc.), link their name to that anchor (`[Jane Doe](#jane-doe)`).
+- **Tickets:** When a ticket ID or URL exists, link it (e.g. `[ICT-123](url)` or link the ID).
 - **Artifacts / docs:** If an artifact or doc has a URL, link it.
 
 When in doubt, add the link.
@@ -102,7 +102,7 @@ Use a single README with three phases. **Full navigation at the top:** after the
 
 ```markdown
 # {Project Name}
-Full nav (link every H2 and H3 that exists in the doc, e.g.):
+Full nav (link every H2 and H3 that exists in the doc):
 - [Discovery](#discovery)
   - [Project tracking](#project-tracking)
   - [Audits](#audits)
@@ -121,12 +121,12 @@ Full nav (link every H2 and H3 that exists in the doc, e.g.):
 ## Discovery
 
 ### Project tracking
-- **Team:** One row per person. Name = individual contributor (person's full name, not team or space). Responsibility = exactly one of: **Driver**, **Approver**, **Contributor**, **Informed** (DACI only; no other values). Example: ticket assignee (e.g. Ryan Allen on the UX ticket) is **Contributor**; the person who assigned the ticket is at least **Informed** (and may also be Driver, Approver, or Contributor).
+- **Team:** One row per person. Name = individual contributor (person's full name, not team or space). Responsibility = exactly one of: **Driver**, **Approver**, **Contributor**, **Informed** (DACI only; no other values). Example: ticket assignee (Ryan Allen on the UX ticket) is **Contributor**; the person who assigned the ticket is at least **Informed** (and may also be Driver, Approver, or Contributor).
 - **Roadmap:** Project + ticket | Due date.
 - **Measurements:** Name | Current state | Desired state.
 
 ### Audits
-Notes, current-state review, competitor review. Track artifacts in Exploration > Artifacts. When source material includes a **Link tree** or **Sources** section (e.g. from learn output), preserve it here: include a "Link tree" subsection with the full traversal map and optionally a Sources table so every crawled link remains in the README.
+Notes, current-state review, competitor review. Track artifacts in Exploration > Artifacts. When source material includes a **Link tree** or **Sources** section (from learn output), preserve it here: include a "Link tree" subsection with the full traversal map and a Sources table when useful so every crawled link remains in the README.
 
 ### Users + Needs
 Users raw & encoded needs (User | Time/date | Verbatim | Encoded needs). Sorted needs. Refined problem statement (In which way might we enable ${user} to solve ${mainNeed1} & ${mainNeed2}, to ${userGoal} & ${businessGoal}?).
@@ -138,7 +138,7 @@ Users raw & encoded needs (User | Time/date | Verbatim | Encoded needs). Sorted 
 Hypotheses (If | then | due to).
 
 ### Artifacts
-Artifacts table (Date | Creator | Artifact). Drawings, surveys, flow charts, prototypes, UI, code repos. **Design files:** physical design files (e.g. Figma, Sketch); link or list with Creator and Artifact.
+Artifacts table (Date | Creator | Artifact). Drawings, surveys, flow charts, prototypes, UI, code repos. **Design files:** physical design files (Figma, Sketch); link or list with Creator and Artifact.
 
 ### Validation
 Test plan (general, users, goals). User testing results (Version | KPI 1 | KPI 2).
@@ -162,7 +162,7 @@ Learnings. Recommendations. Links to new docs.
 - Every source or URL reference must be a markdown link `[title](url)` so it is clickable; never plain text title with URL elsewhere or bare URL
 - Never invent information not present in source material. No placeholder or made-up content anywhere: no fake table rows, no TBD, no example names/dates/artifacts in Deliverables, Project tracking, Roadmap, or any other section. Only real data from source material; leave sections or tables empty when there is nothing to put.
 - In Project tracking > Team: Name must be an individual person (full name). Responsibility must be exactly one of Driver, Approver, Contributor, Informed (DACI). No other roles or labels.
-- When structuring from research that includes a Link tree or Sources section, preserve them in the README (e.g. under Discovery > Audits) so the full link tree is always present
+- When structuring from research that includes a Link tree or Sources section, preserve them in the README (under Discovery > Audits) so the full link tree is always present
 - **One folder, one README:** Never create a new project path, folder, or README for new problems or findings. Add all problems, topics, and updates to the existing project README only.
 - Always attribute content to its source
 - Use mermaid diagrams for any process with 3+ steps or any hierarchy with 2+ levels
