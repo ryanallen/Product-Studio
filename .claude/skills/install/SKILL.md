@@ -46,17 +46,24 @@ MCPs install to the user's **global** Claude config so Claude recognizes them. E
 - **Linux:** `$HOME/.claude.json`
 - **Windows:** `%USERPROFILE%\.claude.json`
 
-For each MCP they chose (from Inputs), add it to the `mcpServers` object in that file (create the file or merge with existing). For figma-console use the user's Figma token (from step 2) as `FIGMA_ACCESS_TOKEN`. Omit servers they did not choose.
+For each MCP they chose (from Inputs), add it using the official CLI below. Do not use the Write or Edit tool (designed for source code, not hot files; fails with "file modified since read"). Use only these commands. Omit any server they did not choose.
 
-Do not use the Write or Edit tool to modify the user's global config file (it often fails on Mac). Use only the commands below. After running them, if they chose figma-console, tell the user to add the `env` block themselves: open the config file at the path above and add to the figma-console entry `"env": { "FIGMA_ACCESS_TOKEN": "<token they pasted>", "ENABLE_MCP_APPS": "true" }`.
-
-Run these commands:
-
+**figma-console** (replace `figd_xxx` with the token from step 2):
 ```bash
-claude mcp add figma-console -- npx -y figma-console-mcp@latest
+claude mcp add -e FIGMA_ACCESS_TOKEN=figd_xxx -e ENABLE_MCP_APPS=true figma-console -- npx -y figma-console-mcp@latest
+```
+
+**playwright:**
+```bash
 claude mcp add playwright -- npx -y @executeautomation/playwright-mcp-server
+```
+
+**atlassian-rovo:**
+```bash
 claude mcp add --transport sse atlassian-rovo https://mcp.atlassian.com/v1/sse
 ```
+
+After step 6: user must fully restart Claude Code (not just terminal), then in the new session run `/mcp` for OAuth if needed.
 
 ### 4. Figma Desktop bridge (if they chose figma-console)
 
@@ -83,5 +90,5 @@ Ensure `work/config.md` exists. If it is missing or empty, ask for their teams a
 
 ### 6. Handoff
 
-As the last step, tell the user to restart terminal (or Claude Code / Claude Desktop) so MCP config is picked up; then navigate back into the project folder and start Claude, then run `/mcp` in the chat and follow the OAuth flow for Figma and Atlassian. Never tell them to restart terminal first; that instruction must always be the last step you give the user.
+As the last step, tell the user to fully restart Claude Code (not just terminal) so MCP config is picked up; then navigate back into the project folder and start Claude, then run `/mcp` in the chat and follow the OAuth flow for Figma and Atlassian. Never tell them to restart terminal first; that instruction must always be the last step you give the user.
 Create `.claude/skills/install/install-handoff.marker` so that when they run install again we know they are at this step.
