@@ -1,17 +1,28 @@
 ---
 name: document-agent
-description: Use Claude Code subagents when documenting. See https://code.claude.com/docs/en/sub-agents.md
+description: Use Claude Code subagents when documenting, or when writing/updating agent files (.claude/agents/). Use when user says document with a subagent, use a subagent for documentation, write an agent, update agent, or /document-agent.
 ---
 
 # Document Agent
 
-**Agents are subagents.** The files in `.claude/agents/` (cleaner, documenter, verifier, etc.) are subagent definitions. The official [subagents documentation](https://code.claude.com/docs/en/sub-agents.md) uses the term "agents" for these (e.g. `.claude/agents/`, agent files). Each has a body that becomes the subagent's system prompt, frontmatter (name, description, tools, model), and follows that doc's best practices. When writing or updating an agent file, write a full system prompt in the body (role, "When invoked:" steps, rules).
+**Agents are subagent definitions.** Files in `.claude/agents/` (project) or `~/.claude/agents/` (user) use YAML frontmatter plus a markdown body. The body becomes the subagent's system prompt; frontmatter defines name, description (required), tools, model, and optionally skills, disallowedTools, permissionMode, hooks, memory. Official spec: [Create custom subagents](https://code.claude.com/docs/en/sub-agents.md).
 
-When doing documentation work, use Claude Code subagents as follows:
+## When writing or updating an agent file
 
-1. **Exploration** – Delegate codebase or file discovery to **Explore** (read-only, fast). Keeps exploration out of the main conversation context.
-2. **Multi-step documentation** – Delegate to **general-purpose** when the task needs both gathering context and writing (e.g. read source material then produce README).
-3. **Chaining** – Subagents cannot spawn other subagents. Chain from the main conversation: e.g. Explore for discovery, then document skill in main context, or general-purpose for a full pass.
-4. **When to delegate** – Use subagents when the work is self-contained and can return a summary; use main conversation when the task needs frequent back-and-forth or shared context across phases.
+Write a full system prompt in the body: role, scope, and "When invoked:" steps that reference skills. Match the pattern of existing agents (e.g. documenter, verifier). Only `name` and `description` are required in frontmatter; set `tools` and `model` as needed.
 
-Reference: [Create custom subagents](https://code.claude.com/docs/en/sub-agents.md).
+## Using subagents when documenting
+
+| Subagent | Use when |
+|----------|----------|
+| **Explore** | Codebase or file discovery. Read-only, fast (Haiku). Specify thoroughness: quick, medium, or very thorough. Keeps exploration out of main context. |
+| **general-purpose** | Multi-step documentation (gather context then write). All tools, inherits model. Use when the task needs both discovery and writing (e.g. read source then produce README). |
+| **Plan** | Read-only research during plan mode before presenting a plan. |
+
+**Chaining:** Subagents cannot spawn other subagents. Chain from the main conversation: e.g. Explore for discovery, then run the document skill in main context; or general-purpose for one full pass.
+
+**When to delegate:** Use subagents when the work is self-contained and can return a summary. Use the main conversation when the task needs frequent back-and-forth or shared context across phases.
+
+## Reference
+
+[Create custom subagents](https://code.claude.com/docs/en/sub-agents.md)
