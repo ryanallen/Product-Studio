@@ -9,7 +9,7 @@ desktop.ini
 node_modules/
 package-lock.json
 
-# Local paths config (copy from work/paths.md.example)
+# Local paths config (copy from work/paths.md.template)
 work/paths.md
 
 # Install handoff (agent-created, do not commit)

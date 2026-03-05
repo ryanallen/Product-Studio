@@ -74,7 +74,7 @@ git fetch upstream
 
 Pull with `git pull upstream main` (or say "sync", "pull", or /sync-upstream).
 
-**Local paths config.** `work/paths.md` is gitignored. Copy from `work/paths.md.example` once and edit the tree; sync never overwrites it.
+**Local paths config.** `work/paths.md` is gitignored. Copy from `work/paths.md.template` once and edit the tree; sync never overwrites it.
 
 </details>
 
