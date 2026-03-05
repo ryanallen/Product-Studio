@@ -17,7 +17,7 @@ Custom setup: `.claude/skills/install/custom/SKILL.md`. The installer runs the [
 Call a skill by saying its trigger phrase or typing /skill-name. In Claude Code and Cursor, /skills lists all. Skills live under an assistant config folder (this repo uses `.claude/skills/`), where each skill must live in a kebab-case folder with a file named `SKILL.md` (e.g. `.claude/skills/save/SKILL.md`).
 
 ### 🧭 Coordinator
-Orchestrates researcher, documenter, strategist, verifier, updater. Discover: research, document, strategize, audit, propose, update ticket. No skill of its own. See [coordinator](.claude/agents/coordinator.md).
+Orchestrates researcher, documenter, strategist, verifier, verification-documentor, cleaner, updater. Discover: research, document, strategize, audit, propose, update ticket. Clean up studio: say "clean up studio" or "verify docs"; verifier checks heading hierarchy, nav, emojis; report saved to .tmp; optionally run cleaner to wipe .tmp. No skill of its own. See [coordinator](.claude/agents/coordinator.md).
 
 ### 🔧 Customizer
 Runs `.claude/skills/install/custom/SKILL.md` after the installer (local overrides). See [customizer](.claude/agents/customizer.md).
@@ -40,6 +40,13 @@ Documenter skills use the `document` prefix: **document**, **document-paths**, *
 
 ### ✅ Verifier
 - **verify-paths**: Compare work/paths.md to actual paths under work/. If mismatch, hand off to documenter (document-paths). Used in Save flow.
+- **verify-docs**: Check all documents (paths.md + system + projects) for proper h1/h2/h3 hierarchy, horizontal top nav to sections, and emojis at start of every headline. Used in Clean up studio flow.
+
+### 📋 Verification-documentor
+- **document-verification**: After verify-docs, track all files processed, compare to README and paths.md, write `.tmp/verification-report.md` for user verification. Used in Clean up studio flow.
+
+### 🧹 Cleaner
+- **clean**: Delete everything in `.tmp/`. "clean", "wipe .tmp", /clean. Use after verifying the report.
 
 ### 🔄 Updater
 - **update-figma**: Update the Figma token in figma-console MCP config. "update Figma token", "renew Figma token", /update-figma.
@@ -87,6 +94,8 @@ Product Studio/
 │   │   ├── researcher.md
 │   │   ├── strategist.md
 │   │   ├── verifier.md
+│   │   ├── verification-documentor.md
+│   │   ├── cleaner.md
 │   │   ├── installer.md
 │   │   ├── uninstaller.md
 │   │   ├── updater.md
@@ -106,6 +115,9 @@ Product Studio/
 │       │       └── sync-codex-from-claude.mjs
 │       ├── sync-upstream/SKILL.md
 │       ├── verify-paths/SKILL.md
+│       ├── verify-docs/SKILL.md
+│       ├── document-verification/SKILL.md
+│       ├── clean/SKILL.md
 │       ├── uninstall/SKILL.md
 │       ├── update-figma/SKILL.md
 │       ├── document-paths/SKILL.md
@@ -118,6 +130,7 @@ Product Studio/
 │       └── capture-webpage/
 │           ├── SKILL.md
 │           └── scripts/capture.js
+├── .tmp/   (gitignored; verification reports)
 ├── work/
 │   ├── paths.md
 │   └── (see paths.md for pattern)

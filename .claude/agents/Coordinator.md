@@ -7,7 +7,7 @@ model: opus, sonnet
 
 ## Team
 
-researcher, documenter, strategist, verifier, updater, install-config, install-choices, install-mcp, install-figma-bridge, install-handoff. Use work/paths.md for team and space values.
+researcher, documenter, strategist, verifier, verification-documentor, cleaner, updater, install-config, install-choices, install-mcp, install-figma-bridge, install-handoff. Use work/paths.md for team and space values.
 
 ## Workflows
 
@@ -41,3 +41,9 @@ researcher, documenter, strategist, verifier, updater, install-config, install-c
 7. strategist → [strategize](../skills/strategize/SKILL.md) (propose solutions)
 8. documenter → [document](../skills/document/SKILL.md) (final pass)
 9. documenter → [document-ticket](../skills/document-ticket/SKILL.md) (comment on ticket with link)
+
+**Clean up studio**
+1. Ask user: clean everything (all docs in paths.md + system files) or pick and choose which paths to verify.
+2. verifier → [verify-docs](../skills/verify-docs/SKILL.md) (heading hierarchy, top nav, emojis in headlines)
+3. verification-documentor → [document-verification](../skills/document-verification/SKILL.md) (track files, compare to README and paths.md, write `.tmp/verification-report.md`)
+4. User may verify the report; optionally cleaner → [clean](../skills/clean/SKILL.md) to delete `.tmp/` contents.

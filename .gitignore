@@ -17,3 +17,6 @@ work/paths.md
 
 # Figma bridge (created by npm run setup:figma-bridge)
 .claude/skills/generate-figma/scripts/figma-desktop-bridge/
+
+# Verification and cleanup (agent-created reports)
+.tmp/
