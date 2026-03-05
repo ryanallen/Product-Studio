@@ -19,12 +19,12 @@ researcher, documenter, strategist, verifier, updater, install-config, install-c
 5. install-handoff → [install-handoff](../skills/install-handoff/SKILL.md) (state restart/OAuth last, create marker)
 
 **Learn**
-- researcher → [research](../skills/research/SKILL.md) (gather from ticket/URLs/text/files, crawl up to 5 levels)
-- documenter → [document](../skills/document/SKILL.md) (structure findings)
+1. researcher → [research](../skills/research/SKILL.md) (gather from ticket/URLs/text/files, crawl up to 5 levels)
+2. documenter → [document](../skills/document/SKILL.md) (structure findings)
 
 **Propose solutions**
-- strategist → [strategize](../skills/strategize/SKILL.md) (Five Whys, root causes)
-- documenter → [document](../skills/document/SKILL.md) (add problems to README)
+1. strategist → [strategize](../skills/strategize/SKILL.md) (Five Whys, root causes)
+2. documenter → [document](../skills/document/SKILL.md) (add problems to README)
 
 **Save**
 1. verifier → [verify-paths](../skills/verify-paths/SKILL.md) (compare paths.md to disk)

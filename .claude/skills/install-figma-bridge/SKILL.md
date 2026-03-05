@@ -21,6 +21,6 @@ In Figma Desktop:
 
 Whenever you want to use Figma with this system in the future, you need this plugin running in the file you are working in.
 
-When it's time to renew (about every 90 days), you can run [update-figma](../update-figma/SKILL.md) to set a new token, then restart the app.
+When it's time to renew (about every 90 days), you can run update-figma to set a new token, then restart the app.
 
 **Press Enter when done reading to proceed.**

@@ -1,9 +1,16 @@
 ---
 name: install-choices
-description: Ask show hidden files, what to install (all or pick), and Figma token if figma-console. Part of Install workflow.
+description: Ask custom or express install; custom continues with choices, express runs install-express then workflow continues. Part of Install workflow.
 ---
 
 # Install Choices
+
+First ask: **Custom or express install?** Custom walks through each choice. Express: show hidden = yes, install all, then ask for Figma token; then the workflow continues from step 3 of **Install** in [Coordinator](../../agents/coordinator.md).
+
+- **Express:** The agent runs the express flow (see install-choices agent).
+- **Custom:** Continue with the steps below.
+
+**Custom install steps:**
 
 1. **Show hidden files:** Ask if they want to show hidden files. If no, continue. If yes:
    - **macOS:** Run (if it fails due to permissions, continue): `defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder`
