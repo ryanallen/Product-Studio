@@ -1,6 +1,7 @@
 ---
 name: install-handoff
 description: State handoff message last and create marker. Part of Install workflow.
+disable-model-invocation: true
 ---
 
 # Install Handoff
