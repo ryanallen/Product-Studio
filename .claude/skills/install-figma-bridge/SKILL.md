@@ -1,6 +1,7 @@
 ---
 name: install-figma-bridge
 description: Run setup:figma-bridge and give Figma Desktop plugin instructions. Part of Install workflow. Only if they chose figma-console.
+disable-model-invocation: true
 ---
 
 # Install Figma Desktop bridge

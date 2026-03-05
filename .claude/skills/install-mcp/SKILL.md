@@ -1,6 +1,7 @@
 ---
 name: install-mcp
 description: Add chosen MCP servers to user global config via CLI. Part of Install workflow.
+disable-model-invocation: true
 ---
 
 # Install MCP
@@ -28,4 +29,4 @@ claude mcp add playwright -- npx -y @executeautomation/playwright-mcp-server
 claude mcp add --transport sse atlassian-rovo https://mcp.atlassian.com/v1/sse
 ```
 
-After the full Install workflow (step 8): user must fully restart the app (Cursor, Claude Code, etc.), then run `/mcp` for OAuth.
+After the full Install workflow: user must fully restart the app (Cursor, Claude Code, etc.), then run `/mcp` for OAuth.

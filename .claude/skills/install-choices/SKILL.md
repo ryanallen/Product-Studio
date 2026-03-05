@@ -1,13 +1,14 @@
 ---
 name: install-choices
 description: Ask custom or express install; custom continues with choices, express runs install-express then workflow continues. Part of Install workflow.
+disable-model-invocation: true
 ---
 
 # Install Choices
 
-First ask: **Custom or express install?** Custom walks through each choice. Express: show hidden = yes, install all, then ask for Figma token; then the workflow continues from step 3 of **Install** in [Coordinator](../../agents/coordinator.md).
+First ask: **Custom or express install?** Custom walks through each choice. Express: run [install-express](../install-express/SKILL.md), then workflow continues from step 3 (install-mcp) in [Coordinator](../../agents/coordinator.md).
 
-- **Express:** The agent runs the express flow (see install-choices agent).
+- **Express:** Run install-express, then installer continues at install-mcp.
 - **Custom:** Continue with the steps below.
 
 **Custom install steps:**
