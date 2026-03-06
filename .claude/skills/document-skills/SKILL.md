@@ -1,6 +1,6 @@
 ---
 name: document-skills
-description: Produce or update a skill (SKILL.md and supporting files) per Claude Code best practices. Use when user says document a skill, write a skill, update skill docs, refine skill, or /document-skills.
+description: "Produce or update a skill (SKILL.md and supporting files) per Claude Code best practices. Use when user says document a skill, write a skill, update skill docs, refine skill, or /document-skills."
 disable-model-invocation: true
 argument-hint: "[skill-path] [source]"
 ---
