@@ -5,7 +5,7 @@ description: Remove Product Studio MCP entries from the user's Claude config. Us
 
 # Uninstall
 
-Remove the MCP servers that the Install skill adds (figma-console, playwright, atlassian-rovo). They may be in the user's global config or project-scoped in `~/.claude.json` under `projects["<projectPath>"].mcpServers`. Do not edit the file by hand or with Write/Edit tool.
+Remove the MCP servers that the Install skill adds (figma-console, atlassian-rovo). They may be in the user's global config or project-scoped in `~/.claude.json` under `projects["<projectPath>"].mcpServers`. Do not edit the file by hand or with Write/Edit tool.
 
 ## Steps
 
@@ -13,7 +13,6 @@ Remove the MCP servers that the Install skill adds (figma-console, playwright, a
 
 ```bash
 claude mcp remove figma-console
-claude mcp remove playwright
 claude mcp remove atlassian-rovo
 ```
 

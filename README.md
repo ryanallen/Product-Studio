@@ -23,7 +23,6 @@ Orchestrates researcher, documenter, strategist, verifier, verification-document
 Runs `.claude/skills/install-custom/SKILL.md` after the installer (local overrides; that file is created from `SKILL.md.template` during install and is gitignored). See [customizer](.claude/agents/customizer.md).
 
 ### 🎨 Designer
-- **capture-webpage**: Capture a live webpage as a Figma design. "capture page", "to Figma", /capture-webpage. Give webpage URL and Figma file URL.
 - **generate-figma**: Generate or update a Figma design by calling the Figma Console MCP with target file details. "generate Figma", "generate design", /generate-figma.
 
 ### 📝 Documenter
@@ -127,9 +126,6 @@ Product Studio/
 │       │   └── scripts/
 │       │       ├── setup-figma-bridge.mjs
 │       │       └── figma-desktop-bridge/
-│       └── capture-webpage/
-│           ├── SKILL.md
-│           └── scripts/capture.js
 ├── .tmp/
 ├── work/
 │   ├── paths.md.template

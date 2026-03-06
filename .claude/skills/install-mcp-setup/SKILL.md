@@ -1,24 +1,10 @@
 ---
 name: install-mcp-setup
-description: After MCP install, run Playwright browser download and/or Figma Desktop bridge. Part of Install workflow. Run the parts that match what they chose (playwright, figma-console).
+description: After MCP install, run Figma Desktop bridge setup. Part of Install workflow. Only if they chose figma-console.
 disable-model-invocation: true
 ---
 
-# Install MCP setup (Playwright browsers and Figma bridge)
-
-Run only the sections below for the options they chose in install-choices.
-
-## Playwright browsers (if they chose playwright)
-
-From repo root (or project root):
-
-```bash
-npx -y playwright install
-```
-
-Downloads browser binaries for the Playwright MCP server and capture-webpage.
-
-## Figma Desktop bridge (if they chose figma-console)
+# Install MCP setup (Figma Desktop bridge)
 
 Pause here. Show the user the following. When they have finished, they say they are ready to proceed.
 

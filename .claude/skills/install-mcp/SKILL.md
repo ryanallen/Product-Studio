@@ -19,11 +19,6 @@ For each MCP they chose (from install-choices), add with the CLI below. Do not u
 claude mcp add -e "FIGMA_ACCESS_TOKEN=figd_xxx" -e "ENABLE_MCP_APPS=true" figma-console -- npx -y figma-console-mcp@latest
 ```
 
-**playwright:**
-```bash
-claude mcp add playwright -- npx -y @executeautomation/playwright-mcp-server
-```
-
 **atlassian-rovo:**
 ```bash
 claude mcp add --transport sse atlassian-rovo https://mcp.atlassian.com/v1/sse

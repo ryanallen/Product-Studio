@@ -18,8 +18,8 @@ First ask: **Custom or express install?** Custom walks through each choice. Expr
    - **Windows:** File Explorer → View → Show → Hidden items. (Or Folder Options → View → Show hidden files and folders.)
 
 2. **What to install:** Ask if they want all of these installed, or to pick and choose.
-   - **All** – figma-console, playwright, atlassian-rovo. Figma token needed next if figma-console.
-   - **Pick and choose** – For each of figma-console, playwright, atlassian-rovo ask if they want it.
+   - **All** – figma-console, atlassian-rovo. Figma token needed next if figma-console.
+   - **Pick and choose** – For each of figma-console, atlassian-rovo ask if they want it.
    Record which MCPs they chose; later steps use only those.
 
 3. **Figma token (if they chose figma-console):** Give instructions, then ask them to paste the token. Do not ask whether they have one.

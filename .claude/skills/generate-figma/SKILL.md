@@ -15,7 +15,7 @@ Use the Figma Console MCP with the target Figma file details to start a design g
 
 1. Resolve file key (and node id if given) from the user's Figma file URL or details.
 2. Call the Figma Console MCP with those parameters.
-3. Use the response (capture ID, endpoint) to report to the user or hand off to another flow (e.g. capture-webpage).
+3. Use the response (capture ID, endpoint) to report to the user or hand off to another flow.
 
 ## Requirements
 
