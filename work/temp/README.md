@@ -1,86 +1,92 @@
-# 📄 Skill heading structure comparison
+# 📋 Skill heading structure comparison
 
-[Summary](#summary) | [Per-skill headings](#per-skill-headings) | [Canonical order](#canonical-order) | [Differences](#differences) | [Recommended fixes](#recommended-fixes)
-
----
-## 📋 Summary
-
-All SKILL.md files under `.claude/skills/` were read and their heading structure (H1, H2, H3) was extracted. Most refined skills follow **Inputs → Output → Process → (Error Handling) → Reference**. Several skills differ in section names or order. This README lists each skill's headings, a comparison, and recommended fixes to align structure where it makes sense.
+[🔍 Summary](#-summary) | [📐 Canonical order](#-canonical-order) | [📑 Per-skill headings](#-per-skill-headings) | [⚠️ Differences](#-differences) | [🔧 Recommended fixes](#-recommended-fixes)
 
 ---
 
-## 📑 Per-skill headings
+## 🔍 Summary
 
-| Skill | H2 / H3 order |
-|-------|----------------|
-| **analyze-figma** | # Analyze Figma → ## Inputs → ## URL Parsing → ## Behavior → ## Figma MCP Tools → ## Output → ## Caveat |
-| **clean** | # Clean → (no H2; numbered list only) |
-| **document** | # Document → ## Inputs → ## Output → ## Required on every README → ## Markdown standards → ## Process → ### README structure → ## Rules |
-| **document-agent** | # Document Agent → ## Inputs → ## Agent files → ## Using subagents when documenting → ## Reference |
-| **document-paths** | # Document Paths → ## Inputs → ## Output → ## Process → ## Reference |
-| **document-skills** | # Document Skills → ## Inputs → ## Skill structure → ## SKILL.md format → ## Checklist → ## Process → ## Reference |
-| **document-ticket** | # Document Ticket → ## Inputs → ## Output → ## Process → ## Reference |
-| **document-verification** | # Document Verification → ## Inputs → ## Output → ## Process → ## Reference |
-| **generate-figma** | # Generate Figma → ## Inputs → ## Output → ## Process → ## Requirements → ## Reference |
-| **install** | # Install → ## Inputs → ## Output → ## Reference |
-| **install-choices** | # Install Choices → ## Inputs → ## Output → ## Process (custom path) → ## Reference |
-| **install-config** | # Install Config → ## Inputs → ## Output → ## Process → ## Reference |
-| **install-express** | # Install Express → ## Inputs → ## Output → ## Process → ## Reference |
-| **install-handoff** | # Install Handoff → ## Inputs → ## Output → ## Process → ## Reference |
-| **install-mcp** | # Install MCP → ## Inputs → ## Output → ## Config file → ## Process → ## Reference |
-| **install-mcp-setup** | # Install MCP setup → ## Inputs → ## Output → ## Process → ## Reference |
-| **research** | # Research → ## Inputs → ## Output → ## Process → ## Rules → ## Reference |
-| **save** | # Save → ## Inputs → ## Output → ## Command → ## Steps → ## Error Handling → ## Reference |
-| **strategize** | # Strategize → ## Inputs → ## Output → ## Process → ## Rules → ## Reference |
-| **sync-upstream** | # Sync Upstream → ## Inputs → ## Output → ## Process → ## Error Handling → ## Reference |
-| **uninstall** | # Uninstall → ## Inputs → ## Output → ## Process → ## Reference |
-| **update-figma** | # Update Figma token → ## Inputs → ## Output → ## Process → ## Reference |
-| **verify-docs** | # Verify Docs → ## Inputs → ## Output → ## Process → ## Reference |
-| **verify-paths** | # Verify Paths → ## Inputs → ## Output → ## Process → ## Reference |
-
-**Template (not a standalone skill):** install-custom SKILL.md.template → # Install Customization → ### Your local setup (no H2 section labels).
+Every `.claude/skills/*/SKILL.md` in this project was read. H2 (and key H3) order was compared to a single canonical order. **22 skills** match the canonical order. **6 skills** differ in section names or order; recommended fixes are below.
 
 ---
 
 ## 📐 Canonical order
 
-From the majority of refined task skills:
+| Order | H2 section | Notes |
+|-------|-------------|--------|
+| 1 | Inputs | Required or "None" |
+| 2 | Output | What the skill produces or delivers |
+| 3 | Process | Steps; may have ### subsections |
+| 4 | Error Handling | Optional; only when the skill defines error cases |
+| 5 | Reference | Links to Coordinator, related skills, docs |
 
-1. **# {Skill title}** (H1)
-2. **## Inputs**
-3. **## Output**
-4. **## Process** (or ## Command + ## Steps when steps and command are both needed, e.g. save)
-5. **## Error Handling** (optional)
-6. **## Reference**
+**H1** = skill title (e.g. `# Save`). Reference-style content (tables, conventions) can live under Process as subsections or in Reference.
 
-Optional: **## Rules** after Process when the skill has many rules (research, strategize). **## Requirements** or **## Config file** can sit under Process or as a separate H2 when they are reference blocks (e.g. generate-figma, install-mcp).
+---
+
+## 📑 Per-skill headings
+
+H2 sequence only (no ###). Skills are under `.claude/skills/<name>/`.
+
+| Skill | H2 order | Matches canonical? |
+|-------|---------|--------------------|
+| analyze-figma | Inputs → Output → Process → Reference | Yes |
+| clean | Inputs → Output → Process → Reference | Yes |
+| document | Inputs → Output → Required on every README → Markdown standards → Process → (template H2s) → Rules → Reference | No |
+| document-agent | Inputs → Output → Process → Reference | Yes |
+| document-paths | Inputs → Output → Process → Reference | Yes |
+| document-skills | Inputs → Output → Skill structure → SKILL.md format → Checklist → Process → Reference | No |
+| document-ticket | Inputs → Output → Process → Reference | Yes |
+| document-verification | Inputs → Output → Process → Reference | Yes |
+| generate-figma | Inputs → Output → Process → Reference | Yes |
+| install | Inputs → Output → Process → Reference | Yes |
+| install-choices | Inputs → Output → **Process (custom path)** → Reference | No (heading name) |
+| install-config | Inputs → Output → Process → Reference | Yes |
+| install-express | Inputs → Output → Process → Reference | Yes |
+| install-handoff | Inputs → Output → Process → Reference | Yes |
+| install-mcp | Inputs → Output → Process → Reference | Yes |
+| install-mcp-setup | Inputs → Output → Process → Reference | Yes |
+| research | Inputs → Output → Process → Level-0 (input) → Sources → Findings → Link Tree → Rules → Reference | No |
+| save | Inputs → Output → **Command** → **Steps** → Error Handling → Reference | No |
+| strategize | Inputs → Output → Process → Summary → Detailed Analysis → Rules → Reference | No |
+| sync-upstream | Inputs → Output → Process → Error Handling → Reference | Yes |
+| uninstall | Inputs → Output → Process → Reference | Yes |
+| update-figma | Inputs → Output → Process → Reference | Yes |
+| verify-docs | Inputs → Output → Process → Reference | Yes |
+| verify-paths | Inputs → Output → Process → Reference | Yes |
 
 ---
 
 ## ⚠️ Differences
 
-- **analyze-figma** – Output is after URL Parsing, Behavior, Figma MCP Tools; no Process; ends with Caveat instead of Reference.
-- **clean** – No H2 sections; only a numbered list under H1.
-- **document** – Has "Required on every README", "Markdown standards", "Process", "Rules"; no Reference section in heading list (content may still reference docs). Hybrid reference + process skill.
-- **document-agent** – No Output; has "Agent files" and "Using subagents" instead of a single Process.
-- **document-skills** – Meta-skill: Inputs then Skill structure, SKILL.md format, Checklist, Process, Reference. No Output section.
-- **generate-figma** – Has ## Requirements between Process and Reference.
-- **install** – No Process section (only Inputs, Output, Reference).
-- **install-mcp** – Has ## Config file between Output and Process.
-- **save** – Uses ## Command and ## Steps instead of ## Process; has ## Error Handling. Order is correct.
+| Skill | Difference |
+|-------|------------|
+| **document** | Extra H2s between Output and Process (Required on every README, Markdown standards). Template block (Discovery, Exploration, Go to market) uses H2; Rules before Reference. |
+| **document-skills** | Extra H2s between Output and Process (Skill structure, SKILL.md format, Checklist). Reference content; order is Inputs → Output → reference sections → Process → Reference. |
+| **install-choices** | Section named "Process (custom path)" instead of "Process". |
+| **research** | After Process, output template uses top-level H2 (Level-0 (input), Sources, Findings, Link Tree). Then Rules → Reference. |
+| **save** | "Command" and "Steps" are separate H2s instead of under a single Process (with ### Command and ### Steps). |
+| **strategize** | After Process, template/output H2s (Summary, Detailed Analysis) and Rules before Reference. |
 
 ---
 
 ## 🔧 Recommended fixes
 
-1. **analyze-figma** – Move ## Output to immediately after ## Inputs. Group URL Parsing, Behavior, Figma MCP Tools under ## Process (with ### subsections). Rename ## Caveat to a note under Process or add ## Reference and keep Caveat as a subsection there.
-2. **clean** – Add ## Inputs (none), ## Output (.tmp cleared or n/a), ## Process (current steps 1–2), and optionally ## Reference (e.g. document-verification, README .tmp section).
-3. **document** – Add ## Reference at the end if missing (link to paths.md, document-skills, or Coordinator). Keep existing structure; document is a reference-heavy skill.
-4. **document-agent** – Add ## Output (e.g. "Agent file written or updated"). Optionally group "Agent files" and "Using subagents" under ## Process with ### subsections so the order is Inputs → Output → Process → Reference.
-5. **document-skills** – Add ## Output (e.g. "SKILL.md and optional supporting files updated"). Keep Skill structure / SKILL.md format / Checklist as reference; order stays Inputs → (reference sections) → Process → Reference.
-6. **generate-figma** – Leave as-is, or move ## Requirements under ## Process as a final subsection (e.g. ### Requirements). Either is valid.
-7. **install** – Add ## Process with one step (e.g. "Run the Install workflow in Coordinator; the installer runs the full flow") so all three have Inputs → Output → Process → Reference.
-8. **install-mcp** – Move "Config file" under ## Process as the first bullet or ### Config file so the top-level order is Inputs → Output → Process → Reference.
-9. **save** – No change; Command + Steps + Error Handling is the correct pattern for this skill.
+1. ~~**install-choices** – Rename `## Process (custom path)` to `## Process`. Optionally add a first line or ###: "Custom path (when user did not choose express)."~~
 
-After edits, re-run this comparison to confirm alignment.
+2. ~~**save** – Fold Command and Steps under Process. Use `## Process` with `### Command` and `### Steps` (or one subsection "Command and steps") so the top-level order is Inputs → Output → Process → Error Handling → Reference.~~
+
+3. ~~**document** – No structural change required if you want to keep "Required on every README" and "Markdown standards" as reference between Output and Process. If you want strict canonical order, move those under `## Process` as subsections (e.g. ### Required on every README, ### Markdown standards) or under a single `## Reference` and keep Process for the four steps only. Recommendation: leave as-is; document is reference-heavy and the current order is readable.~~
+
+4. ~~**document-skills** – Same as document: either leave as-is (reference sections between Output and Process) or move "Skill structure", "SKILL.md format", and "Checklist" under `## Process` as ### subsections. Recommendation: leave as-is; add only an explicit `## Output` if missing (already present).~~
+
+5. **research** – The sections "Level-0 (input)", "Sources", "Findings", "Link Tree" are output templates (what to write in the README). Options: (a) Move them under `## Process` as ### 5. Output with ### subsections for each template, or (b) Keep as top-level H2 but add a short `## Output` right after Inputs (e.g. "Project README at path from work/paths.md with Level-0, Sources, Findings, Link Tree. Handoff to documenter.") and leave the template H2s as the detailed shape of that output. Recommendation: (b); research already has Output; the template H2s are the spec for that output, so either make them ### under Process step 5, or leave and note in this README that research is an exception.
+
+6. **strategize** – "Summary" and "Detailed Analysis" are the shape of the output (problem analysis). Options: (a) Add `## Output` after Inputs describing that output, then `## Process` with steps; move Summary and Detailed Analysis under Process as subsections or under Output. (b) Leave as-is and treat as a special case (output template as H2). Recommendation: (a) Add Output; keep Process; move Summary and Detailed Analysis under `## Process` as ### subsections (e.g. ### 5. Write problem analysis with Summary and Detailed Analysis).
+
+---
+
+## 📎 Reference
+
+- Source: all `.claude/skills/*/SKILL.md` in this project.
+- Canonical order: Inputs → Output → Process → optional Error Handling → Reference (same as document-skills convention).
