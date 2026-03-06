@@ -7,6 +7,12 @@
         "FIGMA_ACCESS_TOKEN": "${env:FIGMA_ACCESS_TOKEN}",
         "ENABLE_MCP_APPS": "true"
       }
+    },
+    "github": {
+      "url": "https://api.githubcopilot.com/mcp/",
+      "headers": {
+        "Authorization": "Bearer ${env:GITHUB_PAT}"
+      }
     }
   }
 }

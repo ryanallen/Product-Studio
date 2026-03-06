@@ -25,13 +25,17 @@ Custom path (when user did not choose express).
    - **Windows** – File Explorer → View → Show → Hidden items. (Or Folder Options → View → Show hidden files and folders.)
 
 2. **What to install** – Ask if they want all or to pick and choose.
-   - **All** – figma-console, atlassian-rovo. Figma token needed next if figma-console.
-   - **Pick and choose** – For each of figma-console, atlassian-rovo ask if they want it.
+   - **All** – figma-console, atlassian-rovo, github. Figma token needed next if figma-console; GitHub PAT if github.
+   - **Pick and choose** – For each of figma-console, atlassian-rovo, github ask if they want it.
    Record which MCPs they chose; later steps use only those.
 
 3. **Figma token (if they chose figma-console)** – Give instructions, then ask them to paste the token. Do not ask whether they have one.
    - **How to get it** – Figma → profile → Settings → Security. Personal access tokens: create (e.g. "Figma Console MCP", all scopes, up to 90 days), copy.
    - **Ask** – Paste your Figma token (starts with `figd_`).
+
+4. **GitHub PAT (if they chose github)** – Give instructions, then ask them to paste the token. Do not ask whether they have one.
+   - **How to get it** – GitHub → Settings → Developer settings → Personal access tokens. Create (e.g. "GitHub MCP", scopes: repo; for Projects add read:project, project), copy.
+   - **Ask** – Paste your GitHub token.
 
 ## Reference
 
