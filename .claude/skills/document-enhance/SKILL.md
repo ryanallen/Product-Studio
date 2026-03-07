@@ -1,6 +1,6 @@
 ---
 name: document-enhance
-description: Transform plain or basic markdown into publication-quality GitHub READMEs. Use when user says enhance, refine.
+description: Turn plain or basic markdown into a strong GitHub README. Use when user says enhance, refine. Ensures linkable things are linked.
 argument-hint: "[path or paste]"
 disable-model-invocation: false
 user-invocable: true
@@ -8,34 +8,44 @@ user-invocable: true
 
 # Document Enhance
 
-Produce a publication-quality `README.md` suitable for highly starred open source repos.
+Turn markdown into a README that looks good on GitHub and is easy to use. Follow the patterns below and make sure every mention of something linkable becomes a link.
 
 ## Inputs
 
-Before generating, gather:
+Before you write, get:
 
-1. **Project** – What it is, what it does, who it is for.
-2. **Assets** – Logo URL, banner URL, screenshots, GIFs (paths or URLs).
-3. **Optional sections** – Contributors grid, roadmap, FAQ, "why this over X", sponsors, license.
+1. **Project** – What it is, what it does, who it’s for.
+2. **Assets** – Logo, banner, screenshots, GIFs (paths or URLs). **Social share image** – The image used when the repo link is shared. See Process and Patterns.
+3. **Optional sections** – Contributors, roadmap, FAQ, “why this over X”, sponsors, license.
 
-Use `[BRACKETS]` for any value the user must fill in. Output one complete, downloadable `README.md`.
+Use `[BRACKETS]` for anything the user must fill in. Output one full `README.md`.
 
 ## Output
 
-One complete `README.md` (write to file or output for download), using the patterns below and `[BRACKETS]` for user-supplied content.
+One complete `README.md` (to a file or for download), using the patterns below and `[BRACKETS]` where the user supplies content.
 
 ## Process
 
-1. **Ask** – What is the project? What does it do? Who is it for? What assets exist (logo, banner, screenshots, GIFs)?
-2. **Ask** – Which optional sections apply? (contributors, roadmap, FAQ, why-this-over-X, sponsors, etc.)
-3. **Produce** – Full README using the patterns below, with `[BRACKETS]` for user-supplied content.
-4. **Deliver** – Single `README.md` (write to file or output for download).
+### 1. Gather
+
+Ask what the project is, what it does, who it’s for, and what assets exist (logo, banner, screenshots, GIFs). Ask which optional sections they want (contributors, roadmap, FAQ, etc.). Ask for or confirm the **social share image** — the image that appears when the repo link is shared. It can be the hero image, or a dedicated image they provide.
+
+### 2. Link everything that can be linked
+
+**Rule:** If the text mentions something that has a URL or path, add a link. Don’t leave readers guessing where to go.
+
+- **Example of failing:** A README says “Product Studio wires researcher, documenter, strategist, verifier, and other subagents to workflows” and “Skills live under `.claude/skills/`” but never links to `.claude/agents` or `.claude/skills` or the subagents/skills sections. Fix: link “subagents” to `.claude/agents` or the “Subagents and their skills” section; link “skills” to `.claude/skills` or that section; link named subagents/skills to their cards or files where they’re defined.
+- **Apply everywhere:** Section names, file paths, tool names, repos, docs. If it’s linkable, link it. Use relative links for in-repo paths (e.g. `[install skill](.claude/skills/install/SKILL.md)`).
+
+### 3. Produce and deliver
+
+Build the full README from the patterns below, with `[BRACKETS]` for user content. Write to file or output for download.
 
 ## Patterns (use these in the README)
 
 ### Hero and centered title
 
-Centered main title (raw HTML, GitHub-rendered):
+Centered main title (GitHub renders the HTML):
 
 ```html
 <p align="center">
@@ -44,17 +54,11 @@ Centered main title (raw HTML, GitHub-rendered):
 </p>
 ```
 
-Or minimal:
-
-```html
-<p align="center">
-  [Project Name] – [tagline]
-</p>
-```
+Or shorter: `[Project Name] – [tagline]`.
 
 ### Doc/source strip (below hero)
 
-Horizontal rule then blockquote-style links:
+Horizontal rule, then links:
 
 ```markdown
 ---
@@ -68,7 +72,7 @@ Horizontal rule then blockquote-style links:
 
 ### Tagline blockquote
 
-Styled one-liner:
+One clear line:
 
 ```markdown
 > [Catchphrase or positioning statement.]
@@ -84,19 +88,28 @@ The key features are:
 * **Short**: [Description.]
 ```
 
-### Screenshot / GIF (immediate visual impact)
+### Screenshot / GIF
 
-Place early, after intro. Prefer one strong asset (screenshot or GIF). Use Markdown image syntax. For in-repo files (especially animated GIFs), use raw URL so they load and animate correctly on GitHub. See [document-github](../document-github/SKILL.md) for rules.
+Put one strong visual early, right after the intro. Use Markdown image syntax. For files in the repo (especially GIFs), use the raw URL so they load and animate on GitHub. See [document-github](../document-github/SKILL.md).
 
 ```markdown
 ![[Alt text]]([URL])
 ```
 
-Use raw URL for repo assets: `https://raw.githubusercontent.com/[OWNER]/[REPO]/[BRANCH]/[path]/file.gif` (or .png).
+Raw URL form: `https://raw.githubusercontent.com/[OWNER]/[REPO]/[BRANCH]/[path]/file.gif` (or .png).
+
+### Social share image
+
+**Rule:** Set a social share image so the repo looks good when the link is shared. GitHub uses the repo’s social preview; set it in the repo under Settings → General → Social preview, or document where to set it.
+
+- **Option A – Use the hero image:** If the hero (screenshot or GIF) works as the preview, use that image URL. Static images work best for previews; animated GIFs may show as a static frame.
+- **Option B – Dedicated image:** Put a dedicated image in the repo, e.g. `assets/social.png` or `assets/og-image.png`, typical size 1280×640 or 1200×630. Use that URL for the social preview. Tell the user to add the file and set it in GitHub under Settings → Social preview or in their docs site’s meta tags.
+
+In the README or in delivery notes, say which image is set or should be set and where: e.g. “Social preview: use `assets/hero.gif`” or “Add `assets/social.png` and set it in repo Settings → Social preview.”
 
 ### Code block (quickstart)
 
-Always specify language for syntax highlighting. Keep minimal.
+Set the language for highlighting. Keep it minimal.
 
 ````markdown
 ```[lang]
@@ -104,15 +117,15 @@ Always specify language for syntax highlighting. Keep minimal.
 ```
 ````
 
-Optional: show expected output in a second block or inline.
+You can add expected output in a second block or inline.
 
-### Collapsible sections (long content)
+### Collapsible sections
 
 ```html
 <details>
 <summary>Click to expand: [Section title]</summary>
 
-[Markdown content and code blocks here.]
+[Markdown and code here.]
 
 </details>
 ```
@@ -127,13 +140,13 @@ Optional: show expected output in a second block or inline.
 </a>
 ```
 
-Optional query params: `?max=24&columns=6`.
+Optional: `?max=24&columns=6` on the image URL.
 
-### Horizontal rule section dividers
+### Section dividers
 
-Use `---` between major sections to improve scanability.
+Use `---` between major sections so the page is easy to scan.
 
-### Centered footer strip
+### Centered footer
 
 ```html
 <p align="center">
@@ -144,7 +157,7 @@ Use `---` between major sections to improve scanability.
 
 ### Mermaid diagrams
 
-For architecture or flow. GitHub renders Mermaid in `.md`:
+GitHub renders Mermaid in `.md`. Use for flow or architecture:
 
 ````markdown
 ```mermaid
@@ -154,27 +167,9 @@ flowchart LR
 ```
 ````
 
-### Heading hierarchy and emoji
+### Headings and emoji
 
-Use consistent levels: `#` once (title), then `##` for major sections, `###` for subsections. Optional emoji in headings for scanability:
-
-```markdown
-## Features
-## Installation
-## Usage
-## Contributing
-## License
-```
-
-With emoji:
-
-```markdown
-## Features
-## Installation
-## Usage
-## FAQ
-## License
-```
+Use clear hierarchy: one `#` (title), then `##` for main sections, `###` for subsections. Emoji at the start of headings can help scanning (e.g. ## Features, ## Installation).
 
 ### Table of contents (long READMEs)
 
@@ -190,9 +185,9 @@ With emoji:
 
 Anchors: see [document-github](../document-github/SKILL.md) (lowercase, spaces to hyphens).
 
-### Comparison / "why this" table
+### Comparison / “why this” table
 
-Emoji or check/cross for quick scan:
+Use check/cross or emoji for quick scan:
 
 ```markdown
 | Feature        | This project | Alternative X |
@@ -205,9 +200,9 @@ Emoji or check/cross for quick scan:
 
 See [document-github](../document-github/SKILL.md). Supported: `[!NOTE]`, `[!TIP]`, `[!IMPORTANT]`, `[!WARNING]`, `[!CAUTION]`.
 
-### Opinions / testimonials
+### Quotes / testimonials
 
-Blockquote per quote, optional attribution:
+One blockquote per quote, optional attribution:
 
 ```markdown
 > "[Quote text.]"
@@ -215,32 +210,31 @@ Blockquote per quote, optional attribution:
 > — [Name], [Role] ([ref link])
 ```
 
----
-
 ## README structure
 
-Order content so readers can quickly decide relevance (broad first, detail later):
+Order so readers can quickly see what matters:
 
-1. Hero + optional logo/banner
+1. Hero + optional logo/banner and social share image set: hero or dedicated e.g. `assets/social.png`
 2. Doc/source links (if any)
 3. One-paragraph description + tagline
-4. Single standout visual (screenshot or GIF)
-5. Feature list (bullets with bold keys)
+4. One strong visual (screenshot or GIF)
+5. Feature list (bold key + description)
 6. Installation (minimal steps)
-7. Quickstart code + run instructions
+7. Quickstart code + how to run
 8. Optional: TOC, then deeper sections (Usage, API, Config, etc.)
 9. Optional: Contributors, Roadmap, FAQ, Why this over X
 10. License + centered footer (star prompt optional)
 
 ## Quality rules
 
-- **GitHub README rules:** See [document-github](../document-github/SKILL.md) for image/GIF raw URLs, shields.io badges, anchors, alerts.
-- Use real image URLs; user fills `[OWNER]`, `[REPO]`, `[BRANCH]`, paths.
-- Do not invent repo names, links, or assets; use `[BRACKETS]` placeholders.
-- Prefer relative links for in-repo paths (e.g. `docs/guide.md`); for images/GIFs in README use raw URL per document-github.
-- One code block per "minimal example"; add more in separate sections or details.
-- If user provides existing markdown, preserve factual content and upgrade structure/patterns to match this skill.
+- **Link everything linkable.** See Process step 2. Names, paths, sections, tools, repos, docs: if you mention it and it has a URL or path, add the link.
+- **Social share image:** Set one. Use the hero image or a dedicated image e.g. `assets/social.png`. Tell the user where to set it, e.g. repo Settings → Social preview, or document it in the README/delivery notes.
+- **GitHub README rules:** [document-github](../document-github/SKILL.md) for image/GIF raw URLs, badges, anchors, alerts.
+- Use real image URLs; user fills `[OWNER]`, `[REPO]`, `[BRANCH]`, paths. Don’t invent repo names, links, or assets; use `[BRACKETS]` placeholders.
+- Prefer relative links for in-repo paths (e.g. `docs/guide.md`). For images/GIFs in the README use raw URL per document-github.
+- One code block per minimal example; put more in separate sections or details.
+- If the user gives existing markdown, keep the facts and upgrade structure and patterns to match this skill.
 
 ## Reference
 
-[document-github](../document-github/SKILL.md) – GitHub README rules (GIFs, raw URLs, shields.io badges, anchors). [document](../document/SKILL.md) – Documenter skill. [Extend Claude with skills](https://code.claude.com/docs/en/skills.md).
+[document-github](../document-github/SKILL.md) – GitHub README rules. [document](../document/SKILL.md) – Documenter skill. [Extend Claude with skills](https://code.claude.com/docs/en/skills.md).
