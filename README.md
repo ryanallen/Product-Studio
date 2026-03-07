@@ -68,6 +68,9 @@ Custom setup: Add your own steps or notes to the bottom of `.claude/skills/insta
 
 ---
 
+<details>
+<summary><strong>Agents and their skills</strong></summary>
+
 ## Agents and their skills
 
 Call a skill by saying its trigger phrase or typing `/skill-name`. Skills live in `.claude/skills/` in a kebab-case folder with `SKILL.md` (e.g. `.claude/skills/save/SKILL.md`).
@@ -127,6 +130,8 @@ Documenter skills use the `document` prefix: **document**, **document-paths**, *
 
 - **strategize**: Analyze findings with Five Whys, identify root causes and propose solutions. "why broken", "find cause", /strategize.
 
+</details>
+
 <details>
 <summary>Using a working repo with this as upstream</summary>
 
@@ -145,7 +150,12 @@ Pull with `git pull upstream main` (or say "sync", "pull", or /sync-upstream).
 
 </details>
 
+</details>
+
 ---
+
+<details>
+<summary><strong>Repo structure</strong></summary>
 
 ## Repo structure
 
@@ -206,6 +216,8 @@ Product Studio/
 ### .tmp and cleanup
 
 **`.tmp/`** holds agent-generated reports and temp files. It is gitignored and never committed. The **Clean up studio** flow writes a verification report to `.tmp/verification-report.md` (after verify-docs and document-verification). After you verify the report, optionally run the **clean** skill ("clean", "wipe .tmp", /clean) to delete all contents of `.tmp/`. The clean skill only removes files inside `.tmp/`; it does not touch the rest of the repo.
+
+</details>
 
 ---
 
