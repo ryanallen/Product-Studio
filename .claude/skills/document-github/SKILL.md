@@ -1,6 +1,6 @@
 ---
 name: document-github
-description: GitHub README rules: animated GIFs (raw URLs), images, badges (use Markdown not HTML), anchors, alerts. Use when writing or enhancing GitHub READMEs so assets render correctly. In Claude Code and Cursor, /skills lists all.
+description: GitHub README rules: animated GIFs (raw URLs), images, anchors, alerts. Use when writing or enhancing GitHub READMEs so assets render correctly. In Claude Code and Cursor, /skills lists all.
 ---
 
 # Document GitHub
@@ -9,7 +9,7 @@ Rules for content that renders correctly on GitHub (READMEs, docs). Single sourc
 
 ## Inputs
 
-- **Context** – When producing or enhancing a GitHub README, or when the user asks how to make something work on GitHub (e.g. animated GIFs, badges, links).
+- **Context** – When producing or enhancing a GitHub README, or when the user asks how to make something work on GitHub (e.g. animated GIFs, images, links).
 
 ## Output
 
@@ -25,10 +25,6 @@ Apply these rules whenever output is a GitHub-hosted README or the user asks abo
   - Example: `![Product Studio](https://raw.githubusercontent.com/ryanallen/product-studio/main/assets/hero.gif)`
 - **Same for other in-repo images** if they fail to load or animate: use `https://raw.githubusercontent.com/[OWNER]/[REPO]/[BRANCH]/path/to/file.png` (or `.gif`, `.svg`).
 - **Source:** [GitHub community discussion 81359](https://github.com/orgs/community/discussions/81359) – embedding animated GIF in README; raw URL recommended.
-
-### Badges
-
-- **Use Markdown for badges** – Put badges in plain Markdown (e.g. `[![Alt](https://img.shields.io/...)](link)`), not inside `<p align="center">` or any other HTML block. Badges inside HTML often do not render on GitHub; keep them outside HTML so they display reliably.
 
 ### Section anchors (TOC links)
 
