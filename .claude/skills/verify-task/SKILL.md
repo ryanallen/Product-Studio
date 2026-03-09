@@ -15,7 +15,7 @@ Append a **new section** to `.tmp/task-checklist.md` per task. Running list: do 
 
 ## Output
 
-`.tmp/task-checklist.md` (create if missing). Append only. Heading: `## YYYY-MM-DD HH:MM — {summary}`. One line per skill. Agents strikethrough + note in current section when they run a skill.
+`.tmp/task-checklist.md` (create if missing). Append only. Heading: `## YYYY-MM-DD HH:MM — {summary}`. One line per skill. Agents strikethrough + note in current section when they run a skill. Documenter may add a **Files in scope** block to the current task section (file names, locations, content summary; then per-file checkoff with notes).
 
 ## Process
 

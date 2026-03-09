@@ -82,7 +82,7 @@ Fixed sequences. Each step is "run /command" or "delegate to agent". Coordinator
 
 ## Refine / document
 
-1. documenter → document, document-github (if README), document-voice. Update checklist after each skill.
+1. documenter → document, document-github (if README), document-voice. Update checklist after each skill. When doc work is done, documenter runs end-of-job file review: research/files in scope, add **Files in scope** to checklist (name, location, content summary), review each file for needed updates, check off with notes.
 
 ---
 
