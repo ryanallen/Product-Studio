@@ -18,7 +18,7 @@ Subagent file written or updated; or docs produced via a subagent when delegated
 
 ## Process
 
-**Writing or updating a subagent file:** Files live in `.claude/agents/` (project) or `~/.claude/agents/` (user). Each file: YAML frontmatter (`name`, `description` required; `tools`, `model` optional) plus markdown body (role, scope, "When invoked:" steps that reference skills). Match existing subagents (e.g. documenter, verifier).
+**Writing or updating a subagent file:** Files live in `.claude/agents/` (project) or `~/.claude/agents/` (user). Each file: YAML frontmatter (`name`, `description` required; `tools`, `model` optional) plus markdown body (role, scope, "When invoked:" steps that reference skills). Match existing subagents (e.g. documenter, verifier). Extra reference docs for agents (e.g. flow sequences) live in `.claude/agents/assets/docs/`.
 
 | Subagent | Use when |
 |----------|----------|

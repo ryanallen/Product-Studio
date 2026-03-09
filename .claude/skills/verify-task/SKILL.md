@@ -20,7 +20,7 @@ Append a **new section** to `.tmp/task-checklist.md` per task. Running list: do 
 ## Process
 
 1. Ensure `.tmp/` exists.
-2. **Skill list** from flow: Always start with `verify-task`, `document-voice` (Rule 2; emitted by [scripts/checklist.ts](scripts/checklist.ts)). Then append the flow's steps from coordinator-flows (one line per skill). Do not collapse to one line.
+2. **Skill list** from flow: Always start with `verify-task`, `document-voice` (Rule 2; emitted by [scripts/checklist.ts](scripts/checklist.ts)). Then append the flow's steps from the flows in [assets/docs/coordinator-flows.md](../../agents/assets/docs/coordinator-flows.md) (one line per skill). Do not collapse to one line.
 3. Read existing `.tmp/task-checklist.md` if present. Do not overwrite.
 4. Append new section at bottom: if file empty, add title `# Task checklist (running list)` then section. Section = heading `## YYYY-MM-DD HH:MM — {summary}`, blank line, skill lines `- skill-name` or `- ~~skill-name~~ — note`. Optional `## Notes`. (The checklist file keeps this heading so the list is recognizable.)
 5. Write existing content + new section.

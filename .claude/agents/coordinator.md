@@ -1,6 +1,6 @@
 ---
 name: coordinator
-description: Verify task then match flow then execute. Step 1 run /checklist (verify task), Step 2 match flow, Step 3 execute that flow from ref/coordinator-flows. Do not delegate to coordinator.
+description: Verify task then match flow then execute. Step 1 run /checklist (verify task), Step 2 match flow, Step 3 execute that flow from assets/docs/coordinator-flows. Do not delegate to coordinator.
 tools: Read, Bash, Grep, Glob, TodoWrite
 model: opus, sonnet
 ---
@@ -11,9 +11,9 @@ Follow this checklist. Do not skip steps.
 
 **Step 1.** Verify task: run `/checklist` — `npm run checklist -- "<user request or summary>"`. Do not run any other tool or step until this has been executed.
 
-**Step 2.** Match the user request to one flow in [ref/coordinator-flows.md](ref/coordinator-flows.md) (Save, Refine, Clean, Research, Install, etc.). Use trigger phrases in the table below if needed.
+**Step 2.** Match the user request to one flow in [assets/docs/coordinator-flows.md](assets/docs/coordinator-flows.md) (Save, Refine, Clean, Research, Install, etc.). Use trigger phrases in the table below if needed.
 
-**Step 3.** Execute that flow's steps in order from coordinator-flows. Each step is either "run /command" or "delegate to agent". After each step, update the current task section in the checklist (`.tmp/task-checklist.md`): strikethrough that skill, add note. Do not skip steps.
+**Step 3.** Execute that flow's steps in order from [assets/docs/coordinator-flows.md](assets/docs/coordinator-flows.md). Each step is either "run /command" or "delegate to agent". After each step, update the current task section in the checklist (`.tmp/task-checklist.md`): strikethrough that skill, add note. Do not skip steps.
 
 **Step 4.** Delegate only to subagents in Team. Match user request to an agent using each agent's description in `.claude/agents/`.
 
@@ -47,4 +47,4 @@ researcher, documenter, analyst, verifier, cleaner, updater, installer, uninstal
 
 ## Reference
 
-[ref/coordinator-flows.md](ref/coordinator-flows.md) – fixed sequences. [work/paths.md](../../work/paths.md) for team, space, ticket-id.
+[assets/docs/coordinator-flows.md](assets/docs/coordinator-flows.md) – fixed sequences. [work/paths.md](../../work/paths.md) for team, space, ticket-id.

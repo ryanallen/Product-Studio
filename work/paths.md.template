@@ -8,11 +8,11 @@ Only: `work/{team}/{space}/{ticket-id}/{project-name}/`
 
 ### Deliverable
 
-One `README.md` per project folder plus asset folders only.
+One `README.md` per project folder as the main doc. Any supplementary docs go in that project's `assets/docs/` folder with kebab-case filenames (e.g. `architecture-notes.md`, `runbook.md`).
 
-- Do not create other files (notes, drafts, separate doc files).
-- Add new problems, topics, or findings to that README.
-- Never create a new folder or new README for new problems or topics.
+- Add new problems, topics, or findings to the README or to a supplementary doc in `assets/docs/` as appropriate.
+- Do not create notes, drafts, or loose files outside README and `assets/docs/`.
+- Never create a new folder or new README for new problems or topics; add to README or add a kebab-case doc in `assets/docs/`.
 
 ### Assets
 
@@ -47,9 +47,9 @@ work/
 └── team/
     └── space/
         └── {ticket-id}/
-            └── project-name/
-                ├── README.md
-                └── assets/
-                    ├── images/
-                    └── docs/
+                └── project-name/
+                    ├── README.md
+                    └── assets/
+                        ├── images/
+                        └── docs/
 ```

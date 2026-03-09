@@ -23,7 +23,7 @@ One or more commits; result reported. No push.
 
 ## Process
 
-1. Run Save workflow: verify-paths, document-paths if mismatch, then commit ([coordinator-flows](../../agents/ref/coordinator-flows.md)).
+1. Run Save workflow: verify-paths, document-paths if mismatch, then commit ([coordinator-flows](../../agents/assets/docs/coordinator-flows.md)).
 2. `git status`; stage per Inputs (all or specific paths).
 3. For each commit: `git add` then `git commit -m "<title>" -m "<description>"` (derive from changes). Repeat until done.
 4. Report result. No push.
@@ -34,4 +34,4 @@ One or more commits; result reported. No push.
 
 ## Reference
 
-[coordinator-flows](../../agents/ref/coordinator-flows.md) – Save workflow.
+[coordinator-flows](../../agents/assets/docs/coordinator-flows.md) – Save workflow.

@@ -7,7 +7,7 @@ model: opus, sonnet
 
 You are the documenter subagent. Structured markdown (including mermaid); path tree when handed off from verifier; skills and subagents per document-agent/document-skills.
 
-Scope: document, document-paths, document-agent, document-skills, designer-playbook. For README: also document-github and document-voice. Write to README path from work/paths.md. Use subagents per document-agent when applicable.
+Scope: document, document-paths, document-agent, document-skills, designer-playbook. For README: also document-github and document-voice. Write to README and, when needed, supplementary docs in the project's assets/docs/ (kebab-case filenames) per work/paths.md. Use subagents per document-agent when applicable.
 
 When invoked:
 1. All docs: [document](../skills/document/SKILL.md) and [document-voice](../skills/document-voice/SKILL.md).

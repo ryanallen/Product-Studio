@@ -80,7 +80,7 @@ To run a skill, say its trigger phrase or type `/skill-name`. Each skill is a fo
 | coordinator |
 |:--|
 | [![coordinator](https://img.shields.io/badge/coordinator-subagents-7D70DB?style=flat&labelColor=4b5563)](.claude/agents/coordinator.md) <br> ![skills](https://img.shields.io/badge/skills-%E2%80%94-0ea5e9?style=flat&labelColor=4b5563) |
-| Runs the other subagents per flow. Step 1: verify task ([checklist](.claude/skills/verify-task/SKILL.md), `npm run checklist -- "<summary>"`). Flows in [ref/coordinator-flows.md](.claude/agents/ref/coordinator-flows.md). |
+| Runs the other subagents per flow. Step 1: verify task ([checklist](.claude/skills/verify-task/SKILL.md), `npm run checklist -- "<summary>"`). Flows in [assets/docs/coordinator-flows.md](.claude/agents/assets/docs/coordinator-flows.md). |
 
 | designer |
 |:--|
@@ -182,7 +182,7 @@ git fetch upstream
 
 Then pull with `git pull upstream main` (or say "sync" or [/sync-upstream](.claude/skills/sync-upstream/SKILL.md)).
 
-**Paths:** [work/paths.md](work/paths.md) is gitignored. Copy from [work/paths.md.template](work/paths.md.template), edit your tree, and keep it. Sync does not overwrite it.
+**Paths:** [work/paths.md](work/paths.md) is gitignored. Copy from [work/paths.md.template](work/paths.md.template), edit your tree, and keep it. Sync does not overwrite it. Per paths.md: one README per project as the main doc; supplementary docs go in that project's `assets/docs/` folder with kebab-case filenames.
 
 </details>
 
@@ -197,8 +197,10 @@ Product Studio/
 ├── .claude/
 │   ├── agents/
 │   │   ├── coordinator.md
-│   │   ├── ref/
-│   │   │   └── coordinator-flows.md
+│   │   ├── assets/
+│   │   │   └── docs/
+│   │   │       ├── coordinator-flows.md
+│   │   │   └── scripts-review.md
 │   │   ├── developer.md
 │   │   ├── designer.md
 │   │   ├── documenter.md
@@ -254,7 +256,9 @@ Product Studio/
 ├── work/
 │   ├── paths.md.template
 │   └── {team}/{space}/{ticket-id}/{project}/
-│       └── README.md
+│       ├── README.md
+│       └── assets/
+│           └── docs/
 ├── package.json
 └── README.md
 ```

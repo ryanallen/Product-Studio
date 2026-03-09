@@ -1,11 +1,11 @@
 ---
 name: document
-description: Turn research into one clear README per project. Use markdown, mermaid diagrams, tables, and links. Plain language. Use when user says refine, write, write up, document, update, make, /document.
+description: Turn research into a clear README per project; supplementary docs in assets/docs/ with kebab-case names. Use markdown, mermaid diagrams, tables, and links. Plain language. Use when user says refine, write, write up, document, update, make, /document.
 ---
 
 # Document
 
-One README per project (path from [work/paths.md](../../work/paths.md)). Clear headings, diagrams when they help, link to sources.
+One README per project (path from [work/paths.md](../../work/paths.md)) as the main doc. Supplementary docs go in the project's `assets/docs/` folder with kebab-case filenames (e.g. `architecture-notes.md`). Clear headings, diagrams when they help, link to sources.
 
 ## Inputs
 
@@ -15,14 +15,14 @@ One README per project (path from [work/paths.md](../../work/paths.md)). Clear h
 
 ## Output
 
-One README. No separate doc files. Scratch in .tmp is allowed; move into README before done.
+One README (main doc). When needed, supplementary docs in the project's `assets/docs/` folder with kebab-case filenames; link from README. Scratch in .tmp is allowed; move into README or into a doc in `assets/docs/` before done.
 
 ## Process
 
 1. **Read the source** – Scope and main topics.
 2. **Group by sections** – By document type above.
-3. **Write the README** – Clear title and one-line summary. Short paragraphs. Diagrams for flows or relationships. Tables for comparisons. Link to sources inline.
-4. **project-overview** – Use the section outline below. For images and evidence paths see work/paths.md.
+3. **Write the README** – Clear title and one-line summary. Short paragraphs. Diagrams for flows or relationships. Tables for comparisons. Link to sources inline. When a topic deserves its own doc, add it in `assets/docs/` with a kebab-case filename and link from the README.
+4. **project-overview** – Use the section outline below. For images and evidence paths see work/paths.md. Supplementary docs live in `assets/docs/` with kebab-case names.
 
 ### How to write it
 
@@ -81,6 +81,7 @@ Learnings. Recommendations. Links to new docs.
 
 - Relative links only. No full filesystem paths.
 - Real content only. No invented rows, TBD, or fake names/dates. Skip a section if no data.
+- Supplementary docs in the project's `assets/docs/` use kebab-case filenames; link from README.
 - Team table: full name per person. Role: Driver, Approver, Contributor, or Informed.
 - Link tree or Sources from research go under Research and context > Reviews and sources.
 - Attribute content to the source.

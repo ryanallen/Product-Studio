@@ -99,8 +99,8 @@ For injecting shell output before the skill runs, see [Inject dynamic context](h
 
 ## After writing
 
-- **Coordinator sync:** If you changed the description (e.g. phrases that match user requests), update [.claude/agents/coordinator.md](../../agents/coordinator.md) so the flow table and agent descriptions stay in sync.
-- **Rename/move:** If a skill was **renamed or moved** (e.g. generate-figma → designer-figma), update all references: coordinator, agents, README, package.json, other skills that link to it, [verify-task checklist script](verify-task/scripts/checklist.ts), and .gitignore.
+- **Coordinator sync:** If you changed the description (e.g. phrases that match user requests), update [.claude/agents/coordinator.md](../../agents/coordinator.md) and the flow steps in [assets/docs/coordinator-flows.md](../../agents/assets/docs/coordinator-flows.md) if the skill is part of a flow, so the flow table and agent descriptions stay in sync.
+- **Rename/move:** If a skill was **renamed or moved** (e.g. generate-figma → designer-figma), update all references: coordinator, agents, README, package.json, other skills that link to it, [verify-task checklist script](verify-task/scripts/checklist.ts), [agents/assets/docs/](../../agents/assets/docs/) (e.g. coordinator-flows.md if the skill appears in a flow), and .gitignore.
 
 ## Reference
 
