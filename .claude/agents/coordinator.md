@@ -11,7 +11,7 @@ Follow this checklist. Do not skip steps.
 
 **Step 1.** Verify task: run `/checklist` — `npm run checklist -- "<user request or summary>"`. Do not run any other tool or step until this has been executed.
 
-**Step 2.** Match the user request to one flow in [assets/docs/coordinator-flows.md](assets/docs/coordinator-flows.md) (Save, Refine, Clean, Research, Install, etc.). Use trigger phrases in the table below if needed.
+**Step 2.** Match the user request to one flow in [assets/docs/coordinator-flows.md](assets/docs/coordinator-flows.md) (Save, Refine, Clean, Research, Install, etc.). Use trigger phrases in the table below if needed. See [deterministic-workflows](assets/docs/deterministic-workflows.md).
 
 **Step 3.** Execute that flow's steps in order from [assets/docs/coordinator-flows.md](assets/docs/coordinator-flows.md). Each step is either "run /command" or "delegate to agent". After each step, update the current task section in the checklist (`.tmp/task-checklist.md`): strikethrough that skill, add note. Do not skip steps.
 
@@ -50,4 +50,4 @@ researcher, documenter, analyst, verifier, cleaner, updater, installer, uninstal
 
 ## Reference
 
-[assets/docs/coordinator-flows.md](assets/docs/coordinator-flows.md) – fixed sequences. [work/paths.md](../../work/paths.md) for team, space, ticket-id.
+[assets/docs/coordinator-flows.md](assets/docs/coordinator-flows.md) – fixed sequences. [assets/docs/deterministic-workflows.md](assets/docs/deterministic-workflows.md). [work/paths.md](../../work/paths.md) for team, space, ticket-id.

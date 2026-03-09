@@ -1,11 +1,11 @@
 ---
 name: document-agent
-description: When to use subagents for docs; how to write or update .claude/agents/ files. Uses a TypeScript script for deterministic subagent choice (same pattern as AGENTS beginning rules with verify-task checklist). Use when user says document with a subagent, use a subagent for documentation, write a subagent, update subagent, /document-agent.
+description: When to use subagents for docs; how to write or update .claude/agents/ files. Uses a TypeScript script for deterministic subagent choice. Use when user says document with a subagent, use a subagent for documentation, write a subagent, update subagent, /document-agent.
 ---
 
 # Document Agent
 
-When to use subagents for documentation, and how to write or update files in `.claude/agents/`. **Deterministic behavior:** Run the TypeScript script first (like [AGENTS.md](../../AGENTS.md) Rules 1–2 with [verify-task checklist](../verify-task/scripts/checklist.ts)); same task message → same subagent choice.
+When to use subagents for documentation, and how to write or update files in `.claude/agents/`. **Deterministic behavior:** Run the TypeScript script first; same task message → same subagent choice. [deterministic-workflows](../../agents/assets/docs/deterministic-workflows.md).
 
 ## Inputs
 
@@ -26,4 +26,4 @@ Subagent file written or updated; or docs produced via a subagent when delegated
 
 ## Reference
 
-[verify-task checklist](../verify-task/scripts/checklist.ts) – same deterministic pattern. [Create custom subagents](https://code.claude.com/docs/en/sub-agents.md).
+[Create custom subagents](https://code.claude.com/docs/en/sub-agents.md). [deterministic-workflows](../../agents/assets/docs/deterministic-workflows.md).

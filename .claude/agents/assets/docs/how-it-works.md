@@ -41,7 +41,7 @@ So the checklist file is a **running log**: one block per task, with the steps t
 
 ## Why use a TypeScript script instead of "the AI decides"?
 
-So that the same request always produces the same steps. If the AI decided every time, "refine the doc" might sometimes get three steps and sometimes five, or different ones. The script is a single source of truth: same phrase → same flow → same list. That way the checklist is predictable and you can see exactly what the agent is supposed to do. We use the same idea in a couple of other places (e.g. picking which doc subagent to use, or which README sections to use). Small scripts, same input → same output.
+So that the same request always produces the same steps. If the AI decided every time, "refine the doc" might sometimes get three steps and sometimes five, or different ones. The script is a single source of truth: same phrase → same flow → same list. That way the checklist is predictable and you can see exactly what the agent is supposed to do. We use the same idea in a couple of other places (e.g. picking which doc subagent to use, or which README sections to use). Small scripts, same input → same output. For principles and script list, see [deterministic-workflows.md](deterministic-workflows.md).
 
 ---
 
@@ -65,5 +65,6 @@ Same idea: you run `npm run <name> -- <args>` and the script does one job in a d
 
 - **Flow steps and trigger phrases:** [.claude/skills/verify-task/scripts/checklist.ts](../../../skills/verify-task/scripts/checklist.ts) (FLOWS and TRIGGERS at the top).
 - **What the coordinator does with that:** [coordinator-flows.md](coordinator-flows.md). The Refine flow: run researcher when the user shared links or context that needs learning; then run documenter (document subagent; document, document-agent, document-github if README, document-voice, and end-of-job file review).
+- **Why scripts as source of truth:** [deterministic-workflows.md](deterministic-workflows.md).
 
 If you change trigger phrases or add a flow, edit the TypeScript file and the flows doc so they stay in sync.

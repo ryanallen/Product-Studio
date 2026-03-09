@@ -41,7 +41,7 @@ Subagents for design capture, research, and strategic analysis.
 
 Product Studio connects specialist helpers (subagents) to jobs like [install](.claude/skills/install/SKILL.md), [research](.claude/skills/research/SKILL.md), [document](.claude/skills/document/SKILL.md), and [save](.claude/skills/save/SKILL.md). Each helper has skills: small how-to guides that live in [.claude/skills/](.claude/skills/). You can run a skill by saying its phrase or typing `/skill-name`. In Claude Code and Cursor, `/skills` shows everything available.
 
-**Verify task:** Before anything else, agents run `npm run checklist -- "<request or summary>"` (Step 1 of the [coordinator](.claude/agents/coordinator.md)). That appends the current task to the running checklist at [.tmp/task-checklist.md](.tmp/task-checklist.md) and lists the skills for the flow. See [verify-task](.claude/skills/verify-task/SKILL.md). For a plain-language explanation of these commands and scripts, see [How it works (details)](.claude/agents/assets/docs/how-it-works.md).
+**Verify task:** Before anything else, agents run `npm run checklist -- "<request or summary>"` (Step 1 of the [coordinator](.claude/agents/coordinator.md)). That appends the current task to the running checklist at [.tmp/task-checklist.md](.tmp/task-checklist.md) and lists the skills for the flow. See [verify-task](.claude/skills/verify-task/SKILL.md). For a plain-language explanation of these commands and scripts, see [How it works (details)](.claude/agents/assets/docs/how-it-works.md). [Deterministic workflows](.claude/agents/assets/docs/deterministic-workflows.md).
 
 ## Contents
 
@@ -203,6 +203,7 @@ Product Studio/
 │   │   ├── assets/
 │   │   │   └── docs/
 │   │   │       ├── coordinator-flows.md
+│   │   │       ├── deterministic-workflows.md
 │   │   │       ├── how-it-works.md
 │   │   │   └── scripts-review.md
 │   │   ├── developer.md

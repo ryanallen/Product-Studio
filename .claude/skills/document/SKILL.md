@@ -1,11 +1,11 @@
 ---
 name: document
-description: Turn research into a clear README per project; supplementary docs in assets/docs/ with kebab-case names. Uses a TypeScript script for deterministic section outline (same pattern as AGENTS beginning rules with verify-task checklist). Use markdown, mermaid diagrams, tables, and links. Plain language. Use when user says write, write up, document, update, make, /document.
+description: Turn research into a clear README per project; supplementary docs in assets/docs/ with kebab-case names. Uses a TypeScript script for deterministic section outline. Use markdown, mermaid diagrams, tables, and links. Plain language. Use when user says write, write up, document, update, make, /document.
 ---
 
 # Document
 
-One README per project (path from [work/paths.md](../../work/paths.md)) as the main doc. Supplementary docs go in the project's `assets/docs/` folder with kebab-case filenames (e.g. `architecture-notes.md`). Clear headings, diagrams when they help, link to sources. **Deterministic behavior:** Run the TypeScript script for the chosen document type to get the section outline (same pattern as [AGENTS.md](../../AGENTS.md) Rules 1–2 with [verify-task checklist](../verify-task/scripts/checklist.ts)); same document type → same section order.
+One README per project (path from [work/paths.md](../../work/paths.md)) as the main doc. Supplementary docs go in the project's `assets/docs/` folder with kebab-case filenames (e.g. `architecture-notes.md`). Clear headings, diagrams when they help, link to sources. **Deterministic behavior:** Run the TypeScript script for the chosen document type to get the section outline; same document type → same section order. [deterministic-workflows](../../agents/assets/docs/deterministic-workflows.md).
 
 ## Inputs
 
@@ -89,4 +89,4 @@ Learnings. Recommendations. Links to new docs.
 
 ## Reference
 
-[work/paths.md](../../work/paths.md). [Coordinator](../../agents/coordinator.md). [verify-task checklist](../verify-task/scripts/checklist.ts) – same deterministic pattern. [document-github](../document-github/SKILL.md). [document-skills](../document-skills/SKILL.md). The **Refine** flow (coordinator) may run researcher first when the user shared links or context that needs learning; then documenter uses this skill.
+[work/paths.md](../../work/paths.md). [Coordinator](../../agents/coordinator.md). [document-github](../document-github/SKILL.md). [document-skills](../document-skills/SKILL.md). Refine flow may run researcher first when the user shared links or context; then documenter. [deterministic-workflows](../../agents/assets/docs/deterministic-workflows.md).

@@ -30,4 +30,4 @@ Append a **new section** to `.tmp/task-checklist.md` per task. Running list: do 
 
 ## Reference
 
-[Coordinator](../../agents/coordinator.md) – Step 1 runs this. **Real command:** `/checklist` = `npm run checklist -- "<summary>"`. [scripts/checklist.ts](scripts/checklist.ts) implements this skill.
+[Coordinator](../../agents/coordinator.md) – Step 1 runs this. **Real command:** `/checklist` = `npm run checklist -- "<summary>"`. [scripts/checklist.ts](scripts/checklist.ts). [deterministic-workflows](../../agents/assets/docs/deterministic-workflows.md).
