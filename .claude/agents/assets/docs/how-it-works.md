@@ -35,7 +35,7 @@ It looks at your message and matches it against a list of phrases (e.g. "save", 
 - The steps for that flow (e.g. verify-task, document-voice, document, document-github)
 - A Notes section
 
-So the checklist file is a **running log**: one block per task, with the steps the agent is supposed to follow. The agent (or you) can check off each step as it's done. The program doesn't do the work; it only **writes down the plan**.
+So the checklist file is a **running log**: one block per task, with the steps the agent is supposed to follow. The agent (or you) can check off each step as it's done. For the Refine flow, steps include verify-task, document-voice, and sometimes research (when the user shared links or context), then document, document-github. The program doesn't do the work; it only **writes down the plan**.
 
 ---
 
@@ -64,6 +64,6 @@ Same idea: you run `npm run <name> -- <args>` and the script does one job in a d
 ## Where the logic lives
 
 - **Flow steps and trigger phrases:** [.claude/skills/verify-task/scripts/checklist.ts](../../../skills/verify-task/scripts/checklist.ts) (FLOWS and TRIGGERS at the top).
-- **What the coordinator does with that:** [coordinator-flows.md](coordinator-flows.md).
+- **What the coordinator does with that:** [coordinator-flows.md](coordinator-flows.md). The Refine flow: run researcher when the user shared links or context that needs learning; then run documenter (document subagent; document, document-agent, document-github if README, document-voice, and end-of-job file review).
 
 If you change trigger phrases or add a flow, edit the TypeScript file and the flows doc so they stay in sync.

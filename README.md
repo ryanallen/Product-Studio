@@ -81,7 +81,7 @@ To run a skill, say its trigger phrase or type `/skill-name`. Each skill is a fo
 | coordinator |
 |:--|
 | [![coordinator](https://img.shields.io/badge/coordinator-subagents-7D70DB?style=flat&labelColor=4b5563)](.claude/agents/coordinator.md) <br> ![skills](https://img.shields.io/badge/skills-%E2%80%94-0ea5e9?style=flat&labelColor=4b5563) |
-| Runs the other subagents per flow. Step 1: verify task ([checklist](.claude/skills/verify-task/SKILL.md), `npm run checklist -- "<summary>"`). Flows in [assets/docs/coordinator-flows.md](.claude/agents/assets/docs/coordinator-flows.md). |
+| Runs the other subagents per flow. Step 1: verify task ([checklist](.claude/skills/verify-task/SKILL.md), `npm run checklist -- "<summary>"`). Flows in [assets/docs/coordinator-flows.md](.claude/agents/assets/docs/coordinator-flows.md). Refine flow: researcher when the user shared links or context that needs learning, then documenter. |
 
 | designer |
 |:--|

@@ -30,7 +30,7 @@ const FLOWS = {
   research: ["research"],
   "research-figma": ["research-figma"],
   install: ["(Install workflow)"],
-  refine: ["document", "document-github"],
+  refine: ["research", "document", "document-github"],
   developer: ["developer-typescript", "developer-check-types"],
   "developer-electron": ["developer-electron"],
   "developer-electrobun": ["developer-electrobun"],

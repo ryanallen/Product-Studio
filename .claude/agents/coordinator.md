@@ -42,6 +42,8 @@ Follow this checklist. Do not skip steps.
 | discover | Discover |
 | clean up studio | Clean up studio |
 
+**Refine:** When the user shared links or context that needs learning, coordinator runs researcher first, then documenter (document subagent). See [Refine / document](assets/docs/coordinator-flows.md#refine--document).
+
 ## Team
 
 researcher, documenter, analyst, verifier, cleaner, updater, installer, uninstaller, designer, developer.

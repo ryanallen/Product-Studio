@@ -1,6 +1,6 @@
 ---
 name: document
-description: Turn research into a clear README per project; supplementary docs in assets/docs/ with kebab-case names. Uses a TypeScript script for deterministic section outline (same pattern as AGENTS beginning rules with verify-task checklist). Use markdown, mermaid diagrams, tables, and links. Plain language. Use when user says refine, write, write up, document, update, make, /document.
+description: Turn research into a clear README per project; supplementary docs in assets/docs/ with kebab-case names. Uses a TypeScript script for deterministic section outline (same pattern as AGENTS beginning rules with verify-task checklist). Use markdown, mermaid diagrams, tables, and links. Plain language. Use when user says write, write up, document, update, make, /document.
 ---
 
 # Document
@@ -89,4 +89,4 @@ Learnings. Recommendations. Links to new docs.
 
 ## Reference
 
-[work/paths.md](../../work/paths.md). [Coordinator](../../agents/coordinator.md). [verify-task checklist](../verify-task/scripts/checklist.ts) – same deterministic pattern. [document-github](../document-github/SKILL.md). [document-skills](../document-skills/SKILL.md).
+[work/paths.md](../../work/paths.md). [Coordinator](../../agents/coordinator.md). [verify-task checklist](../verify-task/scripts/checklist.ts) – same deterministic pattern. [document-github](../document-github/SKILL.md). [document-skills](../document-skills/SKILL.md). The **Refine** flow (coordinator) may run researcher first when the user shared links or context that needs learning; then documenter uses this skill.
