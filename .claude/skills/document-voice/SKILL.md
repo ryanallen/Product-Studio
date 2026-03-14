@@ -40,7 +40,8 @@ Same information in clear, casual language.
 12. **No invented capabilities.** Describe only what the system actually does.
 13. **No invented paths.** Use work/paths.md for paths and team/space names, or ask.
 14. **Work folder.** Paths and structure come from work/paths.md.
+15. **Links.** Use canonical path from repo root (e.g. `.claude/skills/verify-task/SKILL.md`). Do not use relative hrefs with `../` or `./`.
 
 ## Reference
 
-[document-skills](../document-skills/SKILL.md). [document](../document/SKILL.md).
+[document-skills](.claude/skills/document-skills/SKILL.md). [document](.claude/skills/document/SKILL.md).
