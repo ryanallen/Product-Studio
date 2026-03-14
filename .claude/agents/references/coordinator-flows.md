@@ -135,7 +135,7 @@ Fixed sequences. Each step is "run /command" or "delegate to agent".
 1. verifier → verify-task.
 2. **When the user shared links or context that needs learning:** researcher → research (learn those links/context). Update checklist. Otherwise skip to step 3.
 3. verifier → verify-task.
-4. documenter → document. Follows [document-agents](.claude/skills/document-agents/SKILL.md); uses [document](.claude/skills/document/SKILL.md), [document-github](.claude/skills/document-github/SKILL.md) for README, [document-voice](.claude/skills/document-voice/SKILL.md). Update checklist after each skill. End-of-job: research files in scope, add **Files in scope** to checklist, review each file, check off with notes.
+4. documenter → document. Choose skill by task: [document](.claude/skills/document/SKILL.md) (general README/project docs), [document-agents](.claude/skills/document-agents/SKILL.md) (subagent files), [document-skills](.claude/skills/document-skills/SKILL.md) (SKILL.md), [document-agent-teams](.claude/skills/document-agent-teams/SKILL.md) (agent teams). For README output add [document-github](.claude/skills/document-github/SKILL.md) and [document-voice](.claude/skills/document-voice/SKILL.md). When delegating, follow document-agents for subagent choice. Update checklist after each skill. End-of-job: research files in scope, add **Files in scope** to checklist, review each file, check off with notes.
 
 ---
 

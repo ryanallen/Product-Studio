@@ -91,8 +91,8 @@ To run a skill, say its trigger phrase or type `/skill-name`. Each skill is a fo
 
 | documenter |
 |:--|
-| [![documenter](https://img.shields.io/badge/documenter-subagents-7D70DB?style=flat&labelColor=4b5563)](.claude/agents/documenter.md) <br> [![document](https://img.shields.io/badge/document-skills-0ea5e9?style=flat&labelColor=4b5563)](.claude/skills/document/SKILL.md) [![document-paths](https://img.shields.io/badge/document--paths-skills-0ea5e9?style=flat&labelColor=4b5563)](.claude/skills/document-paths/SKILL.md) [![document-ticket](https://img.shields.io/badge/document--ticket-skills-0ea5e9?style=flat&labelColor=4b5563)](.claude/skills/document-ticket/SKILL.md) [![document-github](https://img.shields.io/badge/document--github-skills-0ea5e9?style=flat&labelColor=4b5563)](.claude/skills/document-github/SKILL.md) [![document-agent](https://img.shields.io/badge/document--agents-skills-0ea5e9?style=flat&labelColor=4b5563)](.claude/skills/document-agents/SKILL.md) [![document-skills](https://img.shields.io/badge/document--skills-skills-0ea5e9?style=flat&labelColor=4b5563)](.claude/skills/document-skills/SKILL.md) [![designer-playbook](https://img.shields.io/badge/designer--playbook-skills-0ea5e9?style=flat&labelColor=4b5563)](.claude/skills/designer-playbook/SKILL.md) |
-| Writes and syncs docs (markdown, paths, tickets, READMEs, agents, skills); uses designer-playbook when creating or reviewing product designs. At end of job: lists files in scope in the checklist (name, location, content summary), reviews each for needed updates, checks off with notes. |
+| [![documenter](https://img.shields.io/badge/documenter-subagents-7D70DB?style=flat&labelColor=4b5563)](.claude/agents/documenter.md) <br> [![document](https://img.shields.io/badge/document-skills-0ea5e9?style=flat&labelColor=4b5563)](.claude/skills/document/SKILL.md) [![document-paths](https://img.shields.io/badge/document--paths-skills-0ea5e9?style=flat&labelColor=4b5563)](.claude/skills/document-paths/SKILL.md) [![document-ticket](https://img.shields.io/badge/document--ticket-skills-0ea5e9?style=flat&labelColor=4b5563)](.claude/skills/document-ticket/SKILL.md) [![document-github](https://img.shields.io/badge/document--github-skills-0ea5e9?style=flat&labelColor=4b5563)](.claude/skills/document-github/SKILL.md) [![document-agent](https://img.shields.io/badge/document--agents-skills-0ea5e9?style=flat&labelColor=4b5563)](.claude/skills/document-agents/SKILL.md) [![document-skills](https://img.shields.io/badge/document--skills-skills-0ea5e9?style=flat&labelColor=4b5563)](.claude/skills/document-skills/SKILL.md) [![document-agent-teams](https://img.shields.io/badge/document--agent--teams-skills-0ea5e9?style=flat&labelColor=4b5563)](.claude/skills/document-agent-teams/SKILL.md) [![designer-playbook](https://img.shields.io/badge/designer--playbook-skills-0ea5e9?style=flat&labelColor=4b5563)](.claude/skills/designer-playbook/SKILL.md) |
+| Writes and syncs docs (markdown, paths, tickets, READMEs, agents, skills, agent teams); uses designer-playbook when creating or reviewing product designs. At end of job: lists files in scope in the checklist (name, location, content summary), reviews each for needed updates, checks off with notes. |
 
 | installer |
 |:--|
@@ -193,74 +193,77 @@ Then pull with `git pull upstream main` (or say "sync" or [/sync-upstream](.clau
 Product Studio/
 ├── AGENTS.md
 ├── CLAUDE.md -> AGENTS.md
+├── README.md
 ├── .claude/
 │   ├── agents/
+│   │   ├── analyst.md
+│   │   ├── cleaner.md
 │   │   ├── coordinator.md
-│   │   ├── references/
-│   │   │   ├── coordinator-flows.md
-│   │   │   └── deterministic-workflows.md
+│   │   ├── customizer.md
 │   │   ├── developer.md
 │   │   ├── designer.md
 │   │   ├── documenter.md
-│   │   ├── researcher.md
-│   │   ├── analyst.md
-│   │   ├── verifier.md
-│   │   ├── cleaner.md
 │   │   ├── installer.md
-│   │   ├── customizer.md
+│   │   ├── researcher.md
 │   │   ├── uninstaller.md
-│   │   └── updater.md
+│   │   ├── updater.md
+│   │   ├── verifier.md
+│   │   └── references/
+│   │       ├── coordinator-flows.md
+│   │       └── deterministic-workflows.md
 │   └── skills/
-│       ├── research/SKILL.md
-│       ├── document/SKILL.md
-│       ├── document-voice/SKILL.md
-│       ├── document-paths/SKILL.md
-│       ├── document-ticket/SKILL.md
-│       ├── document-github/SKILL.md
-│       ├── document-agents/SKILL.md
-│       ├── designer-playbook/SKILL.md
-│       ├── document-skills/SKILL.md
 │       ├── analyst-diagnostics/SKILL.md
-│       ├── research-figma/SKILL.md
-│       ├── verify-task/
-│       │   ├── SKILL.md
-│       │   └── scripts/checklist.ts
-│       ├── install/
-│       │   └── SKILL.md
-│       ├── install-custom/
-│       │   └── SKILL.md.template
-│       ├── developer-typescript/SKILL.md
-│       ├── developer-check-types/SKILL.md
-│       ├── developer-electron/SKILL.md
-│       ├── save/
-│       │   ├── SKILL.md
-│       │   └── scripts/
-│       ├── sync-upstream/SKILL.md
-│       ├── verify-paths/SKILL.md
-│       ├── verify-docs/SKILL.md
-│       ├── document-verification/SKILL.md
 │       ├── clean/
 │       │   ├── SKILL.md
 │       │   └── scripts/clean.mjs
-│       ├── developer-virtualization/SKILL.md
-│       ├── uninstall/SKILL.md
-│       ├── update-figma/SKILL.md
-│       ├── update-gitignore/SKILL.md
 │       ├── designer-figma/
 │       │   ├── SKILL.md
 │       │   └── scripts/
 │       │       ├── setup-figma-bridge.mjs
 │       │       └── figma-desktop-bridge/
+│       ├── designer-playbook/SKILL.md
+│       ├── developer-check-types/SKILL.md
+│       ├── developer-electron/SKILL.md
+│       ├── developer-electrobun/SKILL.md
+│       ├── developer-typescript/SKILL.md
+│       ├── developer-virtualization/SKILL.md
+│       ├── document/SKILL.md
+│       ├── document-agent-teams/SKILL.md
+│       ├── document-agents/SKILL.md
+│       ├── document-github/SKILL.md
+│       ├── document-paths/SKILL.md
+│       ├── document-skills/SKILL.md
+│       ├── document-ticket/SKILL.md
+│       ├── document-verification/SKILL.md
+│       ├── document-voice/SKILL.md
+│       ├── install/
+│       │   └── SKILL.md
+│       ├── install-custom/
+│       │   └── SKILL.md.template
+│       ├── research/SKILL.md
+│       ├── research-figma/SKILL.md
+│       ├── save/
+│       │   ├── SKILL.md
+│       │   └── scripts/
+│       ├── sync-upstream/SKILL.md
+│       ├── uninstall/SKILL.md
+│       ├── update-figma/SKILL.md
+│       ├── update-gitignore/SKILL.md
+│       ├── verify-docs/SKILL.md
+│       ├── verify-paths/SKILL.md
+│       └── verify-task/
+│           ├── SKILL.md
+│           └── scripts/checklist.ts
 ├── .tmp/
-├── work/
-│   ├── paths.md
-│   ├── paths.md.template
-│   └── {team}/{space}/{ticket-id}/{project}/
-│       ├── README.md
-│       └── assets/
-│           └── docs/
 ├── package.json
-└── README.md
+└── work/
+    ├── paths.md
+    ├── paths.md.template
+    └── {team}/{space}/{ticket-id}/{project}/
+        ├── README.md
+        └── assets/
+            ├── docs/
+            └── images/
 ```
 
 ### .tmp and cleanup

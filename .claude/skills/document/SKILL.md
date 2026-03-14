@@ -90,4 +90,4 @@ Learnings. Recommendations. Links to new docs.
 
 ## Reference
 
-[work/paths.md](work/paths.md). [coordinator](.claude/agents/coordinator.md). [document-github](.claude/skills/document-github/SKILL.md). [document-skills](.claude/skills/document-skills/SKILL.md). Refine flow may run researcher first when the user shared links or context; then documenter. [deterministic-workflows](.claude/agents/references/deterministic-workflows.md).
+[work/paths.md](work/paths.md). [coordinator](.claude/agents/coordinator.md). [document-github](.claude/skills/document-github/SKILL.md). [document-skills](.claude/skills/document-skills/SKILL.md). [document-agent-teams](.claude/skills/document-agent-teams/SKILL.md) when the task involves agent teams or multi-agent coordination. Refine flow may run researcher first when the user shared links or context; then documenter. [deterministic-workflows](.claude/agents/references/deterministic-workflows.md).
