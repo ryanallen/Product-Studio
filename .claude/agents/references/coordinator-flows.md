@@ -159,11 +159,8 @@ Run verify task skill.
 
 ## Save
 
-Run verify task skill.
 1. verifier → verify-paths (compare work/paths.md Editable section Tree to disk; flag both directions).
-Run verify task skill.
 2. If disk has paths not in tree: documenter → document-paths (add to tree only).
-Run verify task skill.
 3. updater → save (stage and commit). No push.
 
 ---
