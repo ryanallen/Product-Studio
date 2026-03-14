@@ -1,6 +1,7 @@
 ---
 name: document
 description: Turn research into a clear README per project; supplementary docs in assets/docs/ with kebab-case names. Uses a TypeScript script for deterministic section outline. Use markdown, mermaid diagrams, tables, and links. Plain language. Use when user says write, write up, document, update, make, /document.
+disable-model-invocation: true
 ---
 
 # Document

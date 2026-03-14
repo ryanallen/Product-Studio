@@ -1,6 +1,7 @@
 ---
 name: developer-electrobun
 description: Build Electrobun desktop apps: Bun main process, views, RPC, bundling. Use when user says electrobun, Electrobun desktop app, /developer-electrobun.
+disable-model-invocation: true
 ---
 
 # Developer Electrobun

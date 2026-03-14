@@ -1,6 +1,7 @@
 ---
 name: clean
 description: Empty .tmp/. Use after verifying reports or to clear temp files. Use when user says clean, wipe .tmp, /clean.
+disable-model-invocation: true
 ---
 
 # Clean

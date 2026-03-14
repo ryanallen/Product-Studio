@@ -1,6 +1,7 @@
 ---
 name: document-agents
 description: When to use subagents for docs; how to write or update .claude/agents/ files. Uses a TypeScript script for deterministic subagent choice. Use when user says document with a subagent, use a subagent for documentation, write a subagent, update subagent, /document-agents.
+disable-model-invocation: true
 ---
 
 # Document Agents

@@ -1,6 +1,7 @@
 ---
 name: designer-playbook
 description: Digital product UI standards: accessibility, layout, typography, components. Use when creating or reviewing product designs, or when user says design standards, design playbook, review design, product design standards, /designer-playbook.
+disable-model-invocation: true
 ---
 
 # Designer Playbook

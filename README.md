@@ -77,7 +77,7 @@ To run a skill, say its trigger phrase or type `/skill-name`. Each skill is a fo
 | coordinator |
 |:--|
 | [![coordinator](https://img.shields.io/badge/coordinator-subagents-7D70DB?style=flat&labelColor=4b5563)](.claude/agents/coordinator.md) <br> ![skills](https://img.shields.io/badge/skills-%E2%80%94-0ea5e9?style=flat&labelColor=4b5563) |
-| Runs the other subagents per flow. Step 1: verify task ([checklist](.claude/skills/verify-task/SKILL.md), `npm run checklist -- "<summary>"`). Flows in [references/coordinator-flows.md](.claude/agents/references/coordinator-flows.md). Refine flow: researcher when the user shared links or context that needs learning, then documenter. |
+| Runs the other subagents per flow. Step 1: verify task ([checklist](.claude/skills/verify-task/SKILL.md), `npm run checklist -- "<summary>"`). Step 2 every task: [document-voice](.claude/skills/document-voice/SKILL.md). Flows in [references/coordinator-flows.md](.claude/agents/references/coordinator-flows.md). Refine: researcher when the user shared links or context that needs learning, then documenter. |
 
 | designer |
 |:--|
@@ -140,7 +140,7 @@ Agents (`.claude/agents/*.md`) and skills (`.claude/skills/<name>/SKILL.md`) use
 
 | Field | Meaning | Reasoning |
 |-------|--------|-----------|
-| `disable-model-invocation` | `true` = only run when explicitly asked or when an agent runs it. | Used for skills that change things (write files, deploy) or must run only on purpose. The agent that invokes the skill should have matching phrases in its description. |
+| `disable-model-invocation` | `true` = load only when the flow or user invokes the skill, not by description match. | For skills called by AGENTS or coordinator flows (e.g. verify-task, document-voice, save, document). |
 | `argument-hint` | Shown in autocomplete (e.g. `[skill-path] [source]`). | Tells the user what optional args they can pass. |
 | `context` | e.g. `fork` = run in a subagent. | Keeps the main chat clean when the skill does multi-step or file-changing work. |
 | `agent` | When `context: fork`, which subagent type (e.g. `general-purpose`). | Picks the runner so the forked task has the right tools and behavior. |
@@ -155,7 +155,7 @@ Agents (`.claude/agents/*.md`) and skills (`.claude/skills/<name>/SKILL.md`) use
 | `tools` | Tools this agent can use (e.g. Read, Write, MCP tools). | Scopes capability; listed in agent file. |
 | `model` | Preferred model(s) for this agent (e.g. opus, sonnet). | Match model to task (e.g. research vs. quick edits). |
 
-**Summary:** Per official docs there is no `triggers` field. Put "when to use" and example phrases in the **description** so Claude and the coordinator can match. Skills that are run only when asked use `disable-model-invocation: true`; the agent that invokes them lists those phrases in its description. Fork plus agent type keeps heavy or write-heavy skills in a subagent.
+**Summary:** No `triggers` field; put "when to use" and phrases in **description**. Flow-invoked skills use `disable-model-invocation: true`. Fork + agent type for heavy or write-heavy skills.
 
 </details>
 
@@ -194,11 +194,10 @@ Product Studio/
 ├── .claude/
 │   ├── agents/
 │   │   ├── coordinator.md
-│   │   ├── assets/
-│   │   │   └── docs/
-│   │   │       ├── coordinator-flows.md
-│   │   │       ├── deterministic-workflows.md
-│   │   │       ├── how-it-works.md
+│   │   ├── references/
+│   │   │   ├── coordinator-flows.md
+│   │   │   ├── deterministic-workflows.md
+│   │   │   ├── how-it-works.md
 │   │   │   └── scripts-review.md
 │   │   ├── developer.md
 │   │   ├── designer.md

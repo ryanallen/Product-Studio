@@ -1,6 +1,7 @@
 ---
 name: developer-virtualization
 description: Best practices for development work running in a VM: isolation, file access, sessions, security. Use when the document flow calls the developer and the developer determines it needs this (e.g. explaining where work runs, security boundaries, or file access).
+disable-model-invocation: true
 ---
 
 # Developer virtualization

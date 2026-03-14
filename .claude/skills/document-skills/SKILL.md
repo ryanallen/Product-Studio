@@ -30,9 +30,9 @@ SKILL.md updated (and supporting files if needed).
 - **Folder name:** Must be **kebab-case** (lowercase, hyphens; no spaces, underscores, or capitals). The frontmatter `name` must match the folder name.
 - **Where skills live:** In a project, typically a dedicated skills directory (e.g. `skills/<name>/`). The host discovers skills from this location even when it's nested (e.g. inside a package).
 - **Optional subfolders only:** Use **scripts/** (executable code), **references/** (documentation loaded as needed), and **assets/** (templates, icons, etc.). Do not put README.md inside the skill folder; all documentation goes in SKILL.md or references/. Long reference material goes in `references/` and is linked from SKILL.md (progressive disclosure).
-- **Length:** Keep SKILL.md under ~5,000 words. Long reference in `references/`, linked from SKILL.md.
-- **Progressive disclosure:** Skills use three levels — (1) YAML frontmatter is always loaded so the assistant knows when to use the skill; (2) SKILL.md body is loaded when the skill is relevant; (3) files in references/ or assets/ are opened only as needed. This keeps token use down while keeping expertise available.
-- **Composability:** Skills can load together. Write the skill so it works alongside others; don't assume it's the only one active.
+- **Length:** Under ~5,000 words; long material in `references/`, linked from SKILL.md.
+- **Progressive disclosure:** (1) Frontmatter always loaded; (2) SKILL.md when relevant; (3) references/assets opened as needed.
+- **Composability:** Skills can load together; don't assume one skill is alone.
 
 ### 2. SKILL.md format
 
@@ -40,14 +40,14 @@ SKILL.md updated (and supporting files if needed).
 
 Frontmatter configures when and how the skill runs. The table below follows the [official skills reference](https://code.claude.com/docs/en/skills.md#frontmatter-reference).
 
-**name** and **description** are required. **name** must match the folder name (kebab-case). **description** should follow: **`[What it does] + [When to use it] + [Key capabilities]`** — under 1024 characters; no XML angle brackets (`<` `>`). Avoid vague lines like "Helps with projects"; include specific trigger phrases and, if relevant, file types (e.g. ".fig files", "PDF contract review").
+**name** and **description** required. **name** = folder name (kebab-case). **description** = **`[What it does] + [When to use it] + [Key capabilities]`**; under 1024 chars; no `<` or `>`; include trigger phrases.
 
 | Field                      | Required    | Description                                                                                                                                           |
 | :------------------------- | :---------- | :---------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `name`                     | Yes         | kebab-case only; must match skill folder name. Lowercase letters, numbers, and hyphens (max 64 characters).                                           |
 | `description`              | Yes         | **`[What it does] + [When to use it] + [Key capabilities]`**. Include trigger phrases (e.g. "Use when user says save, /save"). Mention file types if relevant. Under 1024 characters. No `<` or `>`.        |
 | `argument-hint`            | No          | Hint shown during autocomplete to indicate expected arguments. Example: `[issue-number]` or `[filename] [format]`.                                    |
-| `disable-model-invocation` | No          | Set to `true` to disable automatic loading; use for workflows you want to trigger manually with `/name`. Default: `false`. |
+| `disable-model-invocation` | No          | `true` = load only when invoked (flow or user), not by description. Default: `false`. |
 | `user-invocable`           | No          | Set to `false` to hide from the `/` menu. Use for background knowledge users shouldn't invoke directly. Default: `true`.                              |
 | `allowed-tools`            | No          | Tools the assistant can use without asking permission when this skill is active.                                                                             |
 | `model`                    | No          | Model to use when this skill is active.                                                                                                               |
@@ -63,8 +63,8 @@ Frontmatter configures when and how the skill runs. The table below follows the 
 
 #### Content type
 
-- **Reference content** – Conventions, patterns, style. The assistant applies it inline to your current work. No invocation control needed.
-- **Task content** – Step-by-step instructions for a specific action (deploy, commit, code generation). Often invoked directly with `/skill-name`. Use `disable-model-invocation: true` so the skill is not auto-loaded.
+- **Reference** – Conventions, patterns, style. Applied inline. No invocation control needed.
+- **Task or flow-invoked** – Step-by-step actions or skills called by AGENTS/coordinator by name. Use `disable-model-invocation: true` so the skill loads only when invoked, not by description match.
 
 #### Body sections (same order for every skill)
 
@@ -93,12 +93,12 @@ For injecting shell output before the skill runs, see [Inject dynamic context](h
 
 ### 3. Checklist when writing or updating
 
-1. **Frontmatter:** `description` follows **`[What it does] + [When to use it] + [Key capabilities]`** and is specific (include phrases users might say, e.g. "Use when user says save, /save"). `name` matches the skill. Task or side-effect skills: `disable-model-invocation: true` per official docs.
-2. **Sections:** Inputs, Output, Process, then optionally Examples and Troubleshooting, then Reference. Same order as other skills.
-3. **Length:** Under 500 lines; long reference in other files, linked from SKILL.md.
-4. **Supporting files:** If used, say so in SKILL.md and when to load them. Keep SKILL.md focused; put long or detailed docs in `references/` and link (progressive disclosure).
-5. **Arguments:** Use `$ARGUMENTS` or `$N` and optionally `argument-hint` if the skill takes input.
-6. **Invocation:** Use `disable-model-invocation` and/or `user-invocable` so the skill runs when intended (see [Control who invokes a skill](https://code.claude.com/docs/en/skills.md#control-who-invokes-a-skill)).
+1. **Frontmatter:** `description` = **`[What it does] + [When to use it] + [Key capabilities]`**; include trigger phrases. `name` matches folder. Task or flow-invoked: `disable-model-invocation: true`.
+2. **Sections:** Inputs, Output, Process, then optionally Examples, Troubleshooting, Reference. Same order as other skills.
+3. **Length:** Under 500 lines; long material in `references/`, linked from SKILL.md.
+4. **Supporting files:** Say when to load them; long docs in `references/`, link from SKILL.md.
+5. **Arguments:** Use `$ARGUMENTS` or `$N` and optionally `argument-hint`.
+6. **Invocation:** `disable-model-invocation` and/or `user-invocable` per [official docs](https://code.claude.com/docs/en/skills.md#control-who-invokes-a-skill).
 
 ### 4. Steps to run
 
@@ -110,7 +110,7 @@ For injecting shell output before the skill runs, see [Inject dynamic context](h
 
 **User says:** "Create a skill for validating CSV uploads."
 
-**Actions:** Create folder `skills/validate-csv/` (or the project's skill path; kebab-case). Add SKILL.md with required frontmatter (`name: validate-csv`, description using **`[What it does] + [When to use it] + [Key capabilities]`**, e.g. "Validate CSV uploads. Use when user says validate CSV, check upload, /validate-csv. Key capabilities: schema check, encoding detection."). Add Inputs, Output, Process, optional Reference. If the skill runs a script, add `scripts/validate.sh` and reference it in Process.
+**Actions:** Create `skills/validate-csv/` (kebab-case). SKILL.md with frontmatter (`name: validate-csv`, description = what it does + when to use + key capabilities + trigger phrases). Inputs, Output, Process, optional Reference. If it runs a script, add `scripts/validate.sh` and reference in Process.
 
 **Result:** New skill that triggers on the stated phrases; coordinator and flows updated if it is part of a flow.
 
@@ -138,8 +138,8 @@ Solution: Rename to kebab-case. Update `name` in SKILL.md to match. Update all r
 
 ## After writing
 
-- **Coordinator sync:** If you changed the description (e.g. "when to use" or key capabilities that match user requests), update the coordinator agent and the flow steps in [references/coordinator-flows.md](../../agents/references/coordinator-flows.md) if the skill is part of a flow, so the flow table and agent descriptions stay in sync.
-- **Rename/move:** If a skill was **renamed or moved** (e.g. generate-figma → designer-figma), update all references: coordinator, agents, README, package.json, other skills that link to it, [verify-task checklist script](verify-task/scripts/checklist.ts), [agents/references/](../../agents/references/) (e.g. coordinator-flows.md if the skill appears in a flow), and .gitignore.
+- **Coordinator sync:** If description or flow role changed, update [coordinator-flows.md](../../agents/references/coordinator-flows.md) and coordinator agent so flow table and descriptions stay in sync.
+- **Rename/move:** Update all references: coordinator, agents, README, package.json, [checklist script](verify-task/scripts/checklist.ts), coordinator-flows.md, .gitignore.
 
 ## Reference
 

@@ -1,6 +1,7 @@
 ---
 name: update-gitignore
 description: Explain in plain language what Git is ignoring (.gitignore and .git/info/exclude) and update either file when the user wants to add or remove rules. Use when user says gitignore, what's ignored, update ignore, ignore rules, /update-gitignore.
+disable-model-invocation: true
 ---
 
 # Update Gitignore

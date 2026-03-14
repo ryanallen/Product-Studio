@@ -1,3 +1,3 @@
 # Skills
 
-Reusable workflows invoked by trigger phrase or `/skill-name`. Each skill lives in a kebab-case folder with `SKILL.md`. In Claude Code and Cursor, `/skills` lists all. **Verify task** runs first every turn: the task checklist is updated via `npm run checklist -- "<summary>"` (coordinator Step 1). [verify-task](verify-task/SKILL.md).
+Reusable workflows by trigger phrase or `/skill-name`. One kebab-case folder per skill with `SKILL.md`. **Verify task** first every turn: `npm run checklist -- "<summary>"` ([verify-task](verify-task/SKILL.md)). Flow-invoked skills use `disable-model-invocation: true`; see [README Frontmatter](../../README.md#-frontmatter-agents-and-skills).

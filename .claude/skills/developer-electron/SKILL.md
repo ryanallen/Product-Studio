@@ -1,6 +1,7 @@
 ---
 name: developer-electron
 description: Best practices for building an Electron desktop app: secure architecture, preload, packaging, and pitfalls. Use when user says electron, desktop app, /developer-electron.
+disable-model-invocation: true
 ---
 
 # Developer Electron

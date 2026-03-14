@@ -1,6 +1,7 @@
 ---
 name: developer-check-types
 description: Run the project's TypeScript type checker and fix or explain errors in plain language. Use when user says check types, typecheck, tsc, type errors.
+disable-model-invocation: true
 ---
 
 # Developer Check Types
