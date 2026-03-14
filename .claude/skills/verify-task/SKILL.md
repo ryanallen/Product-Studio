@@ -29,4 +29,4 @@ Run the checklist **before** any Read, Write, Grep, or Shell. That writes a new 
 
 ## Reference
 
-Coordinator Step 1 runs this. **Command:** `npm run checklist -- "<summary>"` or `/checklist`. [scripts/checklist.ts](scripts/checklist.ts). [coordinator-flows](../../agents/references/coordinator-flows.md). [deterministic-workflows](../../agents/references/deterministic-workflows.md).
+Coordinator flows run this before each step (except Save). **Command:** `npm run checklist -- "<summary>"` or `/checklist`. [scripts/checklist.ts](scripts/checklist.ts). [coordinator-flows](../../agents/references/coordinator-flows.md). [deterministic-workflows](../../agents/references/deterministic-workflows.md).

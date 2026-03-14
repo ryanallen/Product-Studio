@@ -1,23 +1,19 @@
 ---
 name: coordinator
-description: Verify task then match flow then execute. Step 1 run /checklist (verify task), Step 2 match flow, Step 3 execute that flow from references/coordinator-flows. Do not delegate to coordinator.
+description: Match flow then execute. Step 1 match flow, Step 2 execute that flow from references/coordinator-flows. Do not delegate to coordinator.
 tools: Read, Bash, Grep, Glob, TodoWrite
 model: opus, sonnet
 ---
 
 # Coordinator
 
-Follow this checklist. Do not skip steps.
+**Step 1.** Match the user request to one flow in [references/coordinator-flows.md](references/coordinator-flows.md). Use the table below; see [deterministic-workflows](references/deterministic-workflows.md).
 
-**Step 1.** Verify task: run `/checklist` — `npm run checklist -- "<user request or summary>"`. Do not run any other tool or step until this has been executed.
+**Step 2.** Execute that flow's steps in order from [references/coordinator-flows.md](references/coordinator-flows.md). After each step: strikethrough + note in current task section.
 
-**Step 2.** Match the user request to one flow in [references/coordinator-flows.md](references/coordinator-flows.md) (Save, Refine, Clean, Research, Install, etc.). Use trigger phrases in the table below if needed. See [deterministic-workflows](references/deterministic-workflows.md).
+**Step 3.** Delegate only to subagents in Team. Match request to an agent by description in `.claude/agents/`.
 
-**Step 3.** Execute that flow's steps in order from [references/coordinator-flows.md](references/coordinator-flows.md). After each step: strikethrough + note in current task section.
-
-**Step 4.** Delegate only to subagents in Team. Match user request to an agent using each agent's description in `.claude/agents/`.
-
-## Flow lookup (for Step 2)
+## Flow lookup
 
 | Trigger phrases | Flow |
 |-----------------|------|
@@ -41,8 +37,6 @@ Follow this checklist. Do not skip steps.
 | propose solutions | Propose solutions |
 | discover | Discover |
 | clean up studio | Clean up studio |
-
-**Refine:** When the user shared links or context that needs learning, coordinator runs researcher first, then documenter (document subagent). See [Refine / document](references/coordinator-flows.md#refine--document).
 
 ## Team
 

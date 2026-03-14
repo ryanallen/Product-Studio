@@ -1,70 +1,43 @@
 # How it works (plain language)
 
-This page explains the technical bits in simple terms. You don't need to read it to use Product Studio; it's here if you're curious what's going on under the hood.
-
----
+Technical bits in simple terms. Optional read.
 
 ## What is npm?
 
-**npm** is the Node Package Manager. It comes with Node.js. It does two main things: it installs packages (libraries other people wrote), and it runs **scripts** (short commands you define).
-
-When you run `npm run checklist`, you're not installing anything. You're asking npm to run a script named `checklist` that's defined in `package.json`. So "npm" is just the thing that reads that file and runs the command next to that name.
-
----
+Node Package Manager (comes with Node.js). Installs packages and runs **scripts** (commands you define in package.json). `npm run checklist` runs the script named `checklist`; it does not install anything.
 
 ## What does `npm run checklist -- "something"` do?
 
-Three parts:
+1. **`npm run checklist`** – Runs the script in [package.json](../../../../package.json), which runs [checklist.ts](../../../skills/verify-task/scripts/checklist.ts).
+2. **`--`** – Everything after `--` is passed to the script, not npm.
+3. **`"something"`** – Task summary. The script matches it to a **flow** (e.g. refine, save, research). Same words → same flow (deterministic).
 
-1. **`npm run checklist`** – Run the script called `checklist` (see [package.json](../../../../package.json)). That script runs a small TypeScript program that lives under `.claude/skills/verify-task/scripts/checklist.ts`.
+One line: you give a short description; the program writes the step list for that flow into the task checklist file.
 
-2. **`--`** – In npm, everything after `--` is passed to the script, not to npm. So the `--` is how you give your sentence to the checklist program.
+## What does the checklist program do?
 
-3. **`"something"`** – The words you put here (e.g. "refine the doc" or "save") are the **task summary**. The checklist program reads this and decides which **flow** you're in (e.g. refine, save, research). Same words → same flow every time. That's what we mean by **deterministic**.
+Matches your message to trigger phrases, picks the flow, appends a section to `.tmp/task-checklist.md`: date/time, summary, steps for that flow, Notes. The agent checks off steps as it goes. Flow details: [coordinator-flows.md](coordinator-flows.md).
 
-So in one line: **you type a short description of what you want; the program turns that into a list of steps and writes that list into the task checklist file.**
+## Why a script instead of the AI deciding?
 
----
+Same phrase → same steps every time. Single source of truth. Principles and script list: [deterministic-workflows.md](deterministic-workflows.md).
 
-## What does the checklist program actually do?
+## Other npm scripts
 
-It looks at your message and matches it against a list of phrases (e.g. "save", "refine", "research"). When it finds a match, it picks the right **flow** (a fixed list of steps). Then it appends a new section to `.tmp/task-checklist.md` with:
+| Script | Runs | Purpose |
+|--------|------|---------|
+| `checklist` | checklist.ts | Append task section + steps to `.tmp/task-checklist.md` |
+| `doc:pick-subagent` | document-agents script | Pick doc subagent from message |
+| `doc:structure` | document script | Section outline for doc type |
+| `clean` | Node script | Empty `.tmp/` |
+| `sync:codex`, `setup:figma-bridge` | Helpers | See script files |
 
-- A date and time
-- Your summary
-- The steps for that flow (e.g. verify-task, document-voice, document, document-github)
-- A Notes section
-
-The checklist file is a running log: one block per task. The agent checks off each step as it's done. The program doesn't do the work; it only writes down the plan. Flow details: [coordinator-flows.md](coordinator-flows.md).
-
----
-
-## Why use a TypeScript script instead of "the AI decides"?
-
-So that the same request always produces the same steps. If the AI decided every time, "refine the doc" might sometimes get three steps and sometimes five, or different ones. The script is a single source of truth: same phrase → same flow → same list. That way the checklist is predictable and you can see exactly what the agent is supposed to do. We use the same idea in a couple of other places (e.g. picking which doc subagent to use, or which README sections to use). Small scripts, same input → same output. For principles and script list, see [deterministic-workflows.md](deterministic-workflows.md).
-
----
-
-## Other npm scripts in this repo
-
-In [package.json](../../../../package.json) you'll see a few more:
-
-| Script | What it runs | What it's for |
-|--------|----------------|----------------|
-| `checklist` | The checklist TypeScript program | Append a task section and steps to `.tmp/task-checklist.md` |
-| `doc:pick-subagent` | A script under document-agents | Decides which doc subagent to use (explore, plan, etc.) from your message |
-| `doc:structure` | A script under document | Returns the section outline for a doc type (research, project-overview, etc.) |
-| `clean` | A small Node script | Empties `.tmp/` |
-| `sync:codex`, `setup:figma-bridge` | Other helpers | Syncing config and setting up Figma; see the script files if you care |
-
-Same idea: you run `npm run <name> -- <args>` and the script does one job in a deterministic way.
-
----
+Same idea: `npm run <name> -- <args>`, deterministic.
 
 ## Where the logic lives
 
-- **Flow steps and trigger phrases:** [.claude/skills/verify-task/scripts/checklist.ts](../../../skills/verify-task/scripts/checklist.ts) (FLOWS and TRIGGERS at the top).
-- **What the coordinator does with that:** [coordinator-flows.md](coordinator-flows.md). The Refine flow: run researcher when the user shared links or context that needs learning; then run documenter (document subagent; document, document-agents, document-github if README, document-voice, and end-of-job file review).
-- **Why scripts as source of truth:** [deterministic-workflows.md](deterministic-workflows.md).
+- **Flow steps, triggers:** [checklist.ts](../../../skills/verify-task/scripts/checklist.ts) (FLOWS and TRIGGERS at top).
+- **What coordinator does with that:** [coordinator-flows.md](coordinator-flows.md).
+- **Why scripts:** [deterministic-workflows.md](deterministic-workflows.md).
 
-If you change trigger phrases or add a flow, edit the TypeScript file and the flows doc so they stay in sync.
+Keep TypeScript and flows doc in sync when you change triggers or add flows.
