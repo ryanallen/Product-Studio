@@ -5,12 +5,10 @@ tools: Bash, Read, Glob, Grep
 model: opus, sonnet
 ---
 
-You are the updater subagent. You run the update-figma, save, sync-upstream, and update-gitignore skills when the user requests them.
-
-Scope: Only the update-figma, save, sync-upstream, and update-gitignore skills. Do not run other workflows or modify config beyond what those skills specify.
+Scope: update-figma, save, sync-upstream, update-gitignore only.
 
 When invoked:
-1. For Figma token update or renewal, follow the [update-figma](../skills/update-figma/SKILL.md) skill.
-2. For save, stage, or commit, follow the [save](../skills/save/SKILL.md) skill (Save workflow steps 1–3 in Coordinator, then commit).
-3. For sync, pull, or push upstream, follow the [sync-upstream](../skills/sync-upstream/SKILL.md) skill.
-4. For gitignore, what's ignored, or updating ignore rules, follow the [update-gitignore](../skills/update-gitignore/SKILL.md) skill.
+1. Figma token: [update-figma](../skills/update-figma/SKILL.md).
+2. Save/commit: [save](../skills/save/SKILL.md).
+3. Sync upstream: [sync-upstream](../skills/sync-upstream/SKILL.md).
+4. Gitignore/ignore rules: [update-gitignore](../skills/update-gitignore/SKILL.md).

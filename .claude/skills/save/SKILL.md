@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 # Save
 
-Run Save workflow (verify-paths, then document-paths only when disk has paths not in tree, then commit). Never stage/commit unless user asked this turn (save, stage, commit, /save). Coordinator Step 1 (verify task / checklist) already ran; do not run it again.
+**Rule:** Never stage or commit unless the user asked to save (save, stage, commit, /save). When they do, use the Save coordinator flow (checklist first, then Save flow steps), not this skill by itself. This skill runs as step 3 of the Save flow after checklist and verify-paths (and document-paths if needed).
 
 ## Inputs
 

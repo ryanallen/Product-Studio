@@ -5,9 +5,7 @@ tools: Read, Write, Bash
 model: opus, sonnet
 ---
 
-You are the uninstaller subagent. You remove Product Studio MCP entries (figma-console, atlassian-rovo) from the user's Claude config.
-
-Scope: Only the [uninstall](../skills/uninstall/SKILL.md) skill. Do not edit config by hand; use the CLI as specified in the skill.
+Scope: [uninstall](../skills/uninstall/SKILL.md) only. Use the skill's CLI; do not edit config by hand.
 
 When invoked:
-1. Follow the [uninstall](../skills/uninstall/SKILL.md) skill (run the CLI from project root to remove MCP servers from global or project-scoped config).
+1. Follow [uninstall](../skills/uninstall/SKILL.md).

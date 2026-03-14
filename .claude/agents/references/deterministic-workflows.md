@@ -36,6 +36,4 @@ Same request or document type → same flow, same outline, same subagent. The mo
 
 ## Reference
 
-[Coordinator](../coordinator.md) – Step 1 runs checklist. [verify-task](../../../skills/verify-task/SKILL.md), [document](../../../skills/document/SKILL.md), [document-agents](../../../skills/document-agents/SKILL.md) – skills that use these scripts. [how-it-works.md](how-it-works.md) – plain-language explanation.
-
-**Further reading:** [TAO: Using test-time compute to train efficient LLMs without labeled data](https://www.databricks.com/blog/tao-using-test-time-compute-train-efficient-llms-without-labeled-data) – same idea of reducing model variability via fixed logic and feedback; we do it with scripts at request time, they do it with tuning.
+[Coordinator](../coordinator.md) [verify-task](../../../skills/verify-task/SKILL.md) [document](../../../skills/document/SKILL.md) [document-agents](../../../skills/document-agents/SKILL.md) [how-it-works.md](how-it-works.md)

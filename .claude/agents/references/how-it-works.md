@@ -35,7 +35,7 @@ It looks at your message and matches it against a list of phrases (e.g. "save", 
 - The steps for that flow (e.g. verify-task, document-voice, document, document-github)
 - A Notes section
 
-So the checklist file is a **running log**: one block per task, with the steps the agent is supposed to follow. The agent (or you) can check off each step as it's done. For the Refine flow, steps include verify-task, document-voice, and sometimes research (when the user shared links or context), then document, document-github. The program doesn't do the work; it only **writes down the plan**.
+The checklist file is a running log: one block per task. The agent checks off each step as it's done. The program doesn't do the work; it only writes down the plan. Flow details: [coordinator-flows.md](coordinator-flows.md).
 
 ---
 

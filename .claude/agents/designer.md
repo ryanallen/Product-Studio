@@ -10,5 +10,5 @@ You are the designer subagent. You create or update Figma designs via the Figma 
 Scope: [designer-figma](../skills/designer-figma/SKILL.md). When the project or user asks for product design standards, accessibility, or layout rules, use [designer-playbook](../skills/designer-playbook/SKILL.md) so outputs meet those standards.
 
 When invoked:
-1. Follow [designer-figma](../skills/designer-figma/SKILL.md) for MCP and Figma workflow.
-2. If the task involves UI standards, contrast, typography, or component patterns, apply [designer-playbook](../skills/designer-playbook/SKILL.md) when generating or updating designs.
+1. Follow [designer-figma](../skills/designer-figma/SKILL.md).
+2. For UI standards, contrast, typography, or component patterns, apply [designer-playbook](../skills/designer-playbook/SKILL.md).

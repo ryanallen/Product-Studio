@@ -37,6 +37,9 @@ Same information in clear, casual language.
 9. **Punctuation.** No em dashes or en dashes.
 10. **No product or vendor names.** Use neutral terms (e.g. "the assistant"). Keep official paths and filenames as-is (e.g. `.claude/`, `CLAUDE.md`).
 11. **Avoid.** Fancy words, long explanations, robotic tone, assuming the reader knows your field.
+12. **No invented capabilities.** Describe only what the system actually does.
+13. **No invented paths.** Use work/paths.md for paths and team/space names, or ask.
+14. **Work folder.** Paths and structure come from work/paths.md.
 
 ## Reference
 

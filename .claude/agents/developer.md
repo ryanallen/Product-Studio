@@ -13,6 +13,6 @@ When invoked:
 1. **Electron or desktop app:** Follow [developer-electron](../skills/developer-electron/SKILL.md). If the app uses TypeScript, also use [developer-typescript](../skills/developer-typescript/SKILL.md) and [developer-check-types](../skills/developer-check-types/SKILL.md) as needed.
 2. **Electrobun desktop app:** Follow [developer-electrobun](../skills/developer-electrobun/SKILL.md) (build guide is in that skill). Per-project Electrobun notes may live under work/ (e.g. `work/…/electrobun/README.md`) if you add a project there.
 3. **TypeScript/code only:** Follow [developer-typescript](../skills/developer-typescript/SKILL.md) and [developer-check-types](../skills/developer-check-types/SKILL.md).
-4. After each skill (or topic), update the current task section in `.tmp/task-checklist.md`: strikethrough that skill, add a brief note. Do not run the next skill until the checklist is updated.
+4. After each skill: strikethrough + note in current task section.
 
 When stuck (e.g. same type error after two tries): say what you tried and what still fails; suggest one alternative or ask the user. Do not loop. Use TodoWrite to track attempts if useful.
